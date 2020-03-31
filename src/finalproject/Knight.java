@@ -7,7 +7,54 @@ package finalproject;
  * @author Team 64 - JMG
  */
 public class Knight extends ChessPiece {
+    private Board chessBoard;
+    
+    /**
+     * This extends the super constructor for Queen
+     * @param color
+     * @param type
+     * @param row
+     * @param column
+     */
+    public Knight(String color, String type, int row, int column) {
+       
+        super(color, type, row, column);
 
+    }
+    
+    /**
+     * This method checks whether a ChessPiece can move or not
+     * @return
+     */
+    @Override
+    public boolean canMove(int row, int column) {
+        
+        int currentRow= this.getrow();
+        int currentColumn = this.getcolumn();
+        
+        // If space occupied and by the same color return false
+        if((this.chessBoard.isSpaceOccupied(row, column)) & (this.chessBoard.getPiece(row,column).getColor() == this.getColor())) {
+            return false;
+        }
+        // Otherwise check if move can be made
+        else {
+            // check if final row and final column are valid
+            if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
+                // Check if Knight is moving appropriately
+                if((Math.abs(row-currentRow) * Math.abs(column-currentColumn)) == 2) {
+                    // First check if move is not resulting in king being check mate
+                    // If not return true
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /*
     ChessPiece blackKnightLeft = new ChessPiece();
     blackKnight.color = "black";
     blackKnight.type = "Knight";
@@ -27,6 +74,6 @@ public class Knight extends ChessPiece {
     whiteKnight.color = "white";
     whiteKnight.type = "Knight";
     board[7][1] = whiteKnight;
+    */
 
-}
 }

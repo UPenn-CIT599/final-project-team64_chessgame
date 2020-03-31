@@ -4,15 +4,15 @@ import java.awt.Color;
 
 public class Board
 {
-	private ChessPiece[][] board;
+	private ChessPiece[][] board = new ChessPiece[8][8];
 	private final int NUMROWS = 8;
 	private final int NUMCOLS = 8;
 
 	/**
 	 * This is the board constructor. It initializes the board
 	 */
-	public Board()
-	{
+	public Board(){
+	    
 		board = new ChessPiece[NUMROWS][NUMCOLS];
 		initializeSideOfBoard(Color.white); 
 		initializeSideOfBoard(Color.black); 
@@ -33,16 +33,38 @@ public class Board
 		{
 			pawnRow = 1;
 			nonPawnRow = 0; 
-			board[nonPawnRow][3] = new Queen("white", "Queen", nonPawnRow, 0);
-			board[nonPawnRow][4] = new King();
+			board[nonPawnRow][3] = new Queen("white", "Queen", nonPawnRow, 3);
+			board[nonPawnRow][4] = new King("white", "King", nonPawnRow, 4);
+			
+    	    for(int i = 0; i < NUMCOLS; i++){
+    	        board[pawnRow][i] = new Pawn("white", "Pawn", pawnRow, i);
+    	    }
+	        board[nonPawnRow][0] = new Rook("white", "Rook", nonPawnRow, 0);
+	        board[nonPawnRow][7] = new Rook("white", "Rook", nonPawnRow, 7);
+	        board[nonPawnRow][1] = new Knight("white", "Knight", nonPawnRow, 1);
+	        board[nonPawnRow][6] = new Knight("white", "Knight", nonPawnRow, 6);
+	        board[nonPawnRow][2] = new Bishop("white", "Bishop", nonPawnRow, 2);
+	        board[nonPawnRow][5] = new Bishop("white", "Bishop", nonPawnRow, 5);
 		}
 		else
 		{
 			pawnRow = NUMROWS - 2;
 			nonPawnRow = NUMROWS - 1;
-			board[nonPawnRow][4] = new Queen("black", "Queen", nonPawnRow, 0);
-			board[nonPawnRow][3] = new King();
+			board[nonPawnRow][4] = new Queen("black", "Queen", nonPawnRow, 4);
+			board[nonPawnRow][3] = new King("black", "King", nonPawnRow, 3);
+			
+			for(int i = 0; i < NUMCOLS; i++){
+			    board[pawnRow][i] = new Pawn("black", "Pawn", pawnRow, i);
+            }
+            board[nonPawnRow][0] = new Rook("black", "Rook", nonPawnRow, 0);
+            board[nonPawnRow][7] = new Rook("black", "Rook", nonPawnRow, 7);
+            board[nonPawnRow][1] = new Knight("black", "Knight", nonPawnRow, 1);
+            board[nonPawnRow][6] = new Knight("black", "Knight", nonPawnRow, 6);
+            board[nonPawnRow][2] = new Bishop("black", "Bishop", nonPawnRow, 2);
+            board[nonPawnRow][5] = new Bishop("black", "Bishop", nonPawnRow, 5);
 		}
+		
+		/*
 		for(int i = 0; i < NUMCOLS; i++)
 		{
 			board[pawnRow][i] = new Pawn();
@@ -53,6 +75,7 @@ public class Board
 		board[nonPawnRow][6] = new Knight();
 		board[nonPawnRow][2] = new Bishop();
 		board[nonPawnRow][5] = new Bishop();
+		*/
 	}
 	
 	/**
@@ -153,8 +176,7 @@ public class Board
 	}
 	
 	/*
-	public boolean isMoveValid(ChessPiece piece, int tgtRow, int tgtCol)
-	{
+	public boolean isMoveValid(ChessPiece piece, int tgtRow, int tgtCol){
 		if(!isSpaceOccupied(tgtRow, tgtCol))
 		{
 			if(piece instanceof Knight)

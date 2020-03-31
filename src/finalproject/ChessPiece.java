@@ -1,6 +1,6 @@
 package finalproject;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  * The ChessPiece class is an abstract superclass with subclasses:
@@ -82,10 +82,12 @@ public abstract class ChessPiece {
         this.column = j;
     }
     
+    /*
     public ArrayList<String> legalMoves(){
         ArrayList<String> strList = new ArrayList<String>();
        return strList;
     }
+    */
     
     /**
      * This method checks whether a ChessPiece can move or not and will be extended in subclasses

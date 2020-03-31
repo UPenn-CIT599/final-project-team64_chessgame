@@ -9,6 +9,7 @@ package finalproject;
  */
 public class Queen extends ChessPiece {
     private Board chessBoard;
+    
     /**
      * This extends the super constructor for Queen
      * @param color
@@ -44,13 +45,13 @@ public class Queen extends ChessPiece {
             if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
                 // Check if Queen is moving forwards or backwards
                 if(Math.abs(row-currentRow) >= 0 && Math.abs(column-currentColumn) == 0) {
-                    // First check if move is not resulting in king being checkmate
+                    // First check if move is not resulting in king being check mate
                     // If not return true
                     return true;
                 }
                 // Check if Queen is moving leftwards or rightwards
                 else if(Math.abs(row-currentRow) == 0 && Math.abs(column-currentColumn) >= 0) {
-                    // First check if move is not resulting in king being checkmate 
+                    // First check if move is not resulting in king being check mate 
                     // If not return true
                     return true;
                 }
@@ -65,7 +66,7 @@ public class Queen extends ChessPiece {
                 }
             }
         }
-        return true;
+        return false;
     }
     
     /*

@@ -1,3 +1,4 @@
+package finalproject;
 
 /**
  * The Bishop class is a concrete class that extends abstract class ChessPiece.

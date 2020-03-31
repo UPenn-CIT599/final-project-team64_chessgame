@@ -1,3 +1,4 @@
+package finalproject;
 
 /**
  * The Rook class is a concrete class that extends abstract class ChessPiece.

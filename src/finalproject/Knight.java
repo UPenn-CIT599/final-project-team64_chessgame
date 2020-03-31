@@ -7,7 +7,6 @@ package finalproject;
  * @author Team 64 - JMG
  */
 public class Knight extends ChessPiece {
-    private Board chessBoard;
     
     /**
      * This extends the super constructor for Queen
@@ -16,13 +15,13 @@ public class Knight extends ChessPiece {
      * @param row
      * @param column
      */
-    public Knight(String color, String type, int row, int column) {
+    public Knight(Board board, String color, String type, int row, int column) {
        
-        super(color, type, row, column);
+        super(board, color, type, row, column);
 
     }
     
-    /**
+     /**
      * This method checks whether a ChessPiece can move or not
      * @return
      */
@@ -33,7 +32,7 @@ public class Knight extends ChessPiece {
         int currentColumn = this.getcolumn();
         
         // If space occupied and by the same color return false
-        if((this.chessBoard.isSpaceOccupied(row, column)) & (this.chessBoard.getPiece(row,column).getColor() == this.getColor())) {
+        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
             return false;
         }
         // Otherwise check if move can be made

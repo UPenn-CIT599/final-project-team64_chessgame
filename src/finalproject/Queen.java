@@ -8,7 +8,6 @@ package finalproject;
  * Moves to be checked for: regular capture move
  */
 public class Queen extends ChessPiece {
-    private Board chessBoard;
     
     /**
      * This extends the super constructor for Queen
@@ -17,13 +16,14 @@ public class Queen extends ChessPiece {
      * @param row
      * @param column
      */
-    public Queen(String color, String type, int row, int column) {
+    public Queen(Board board, String color, String type, int row, int column) {
        
-        super(color, type, row, column);
+        super(board, color, type, row, column);
 
     }
     
     
+
     
     /**
      * This method checks whether a ChessPiece can move or not
@@ -36,7 +36,7 @@ public class Queen extends ChessPiece {
         int currentColumn = this.getcolumn();
         
         // If space occupied and by the same color return false
-        if((this.chessBoard.isSpaceOccupied(row, column)) & (this.chessBoard.getPiece(row,column).getColor() == this.getColor())) {
+        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
             return false;
         }
         // Otherwise check if move can be made

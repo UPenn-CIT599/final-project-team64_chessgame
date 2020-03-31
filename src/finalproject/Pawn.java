@@ -7,7 +7,6 @@ package finalproject;
  * @author Team 64 - JMG
  */
 public class Pawn extends ChessPiece {
-    private Board chessBoard;
     /**
      * This extends the super constructor for Queen
      * @param color
@@ -15,12 +14,13 @@ public class Pawn extends ChessPiece {
      * @param row
      * @param column
      */
-    public Pawn(String color, String type, int row, int column) {
+    public Pawn(Board board, String color, String type, int row, int column) {
        
-        super(color, type, row, column);
+        super(board, color, type, row, column);
 
     }
     
+
     /**
      * This method checks whether a ChessPiece can move or not
      * @return
@@ -34,14 +34,14 @@ public class Pawn extends ChessPiece {
         int blackPawnRow = 6;
         
         // If space occupied and by the same color return false
-        if((this.chessBoard.isSpaceOccupied(row, column)) & (this.chessBoard.getPiece(row,column).getColor() == this.getColor())) {
+        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
             return false;
         }
         // Otherwise check if move can be made
         else {
             // check if final row and final column are valid
             if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
-               if(this.chessBoard.getPiece(currentRow, currentColumn).getColor().equals("white")) {
+               if(this.getBoard().getPiece(currentRow, currentColumn).getColor().equals("white")) {
                    if(currentRow == whitePawnRow) {
                        if((row-currentRow == 2 | row-currentRow == 1) & (Math.abs(column-currentColumn) == 0)) {
                            return true;
@@ -69,7 +69,7 @@ public class Pawn extends ChessPiece {
                        
                    }
                }
-               else if(this.chessBoard.getPiece(currentRow, currentColumn).getColor().equals("black")) {
+               else if(this.getBoard().getPiece(currentRow, currentColumn).getColor().equals("black")) {
                    if(currentRow == blackPawnRow) {
                        if((currentRow - row == 2 | currentRow - row == 1) & (Math.abs(column-currentColumn) == 0)) {
                            return true;
@@ -100,6 +100,7 @@ public class Pawn extends ChessPiece {
         return false;
         }
     }
+    
 }   
     /*
     for(int i = 0; i < 8; i++){

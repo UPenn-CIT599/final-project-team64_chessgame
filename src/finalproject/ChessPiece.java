@@ -10,7 +10,7 @@ package finalproject;
  * @author Team 64 - JMG
  */
 public abstract class ChessPiece {
-    //private Board chessBoard;
+    private Board board;
     private String color;
     private String type;
     private int row;
@@ -19,11 +19,19 @@ public abstract class ChessPiece {
     /**
      * This is the constructor for the ChessPiece
      */
-    public ChessPiece(String color, String type, int row, int column) {
+    public ChessPiece(Board board, String color, String type, int row, int column) {
+        this.board = board;
         this.color = color;
         this.type = type;
         this.row = row;
         this.column = column;
+    }
+    
+    /**
+     * This is getter for the Board
+     */
+    public Board getBoard() {
+        return board;
     }
     
     
@@ -82,15 +90,10 @@ public abstract class ChessPiece {
         this.column = j;
     }
     
-    /*
-    public ArrayList<String> legalMoves(){
-        ArrayList<String> strList = new ArrayList<String>();
-       return strList;
-    }
-    */
     
     /**
-     * This method checks whether a ChessPiece can move or not and will be extended in subclasses
+     * This method checks whether a ChessPiece can move or not and will be 
+     * overridden in each subclass
      * @param row
      * @param column
      * @return

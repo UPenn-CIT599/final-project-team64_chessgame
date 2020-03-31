@@ -29,51 +29,46 @@ public class Board
 	 * This method is used to initialize the board
 	 *
 	 */
-	private Board initialize() {
-	    
-	    Board chessBoard = new Board();
+	private void initialize() {
 	    
 	    int pawnRow;
 	    int nonPawnRow;
 	    
 	    pawnRow = 1;
 	    nonPawnRow = 0; 
-	    board[nonPawnRow][3] = new Queen(chessBoard, "white", "Queen", nonPawnRow, 3);
-	    board[nonPawnRow][4] = new King(chessBoard, "white", "King", nonPawnRow, 4);
+	    board[nonPawnRow][3] = new Queen(this, "white", "Queen", nonPawnRow, 3);
+	    board[nonPawnRow][4] = new King(this, "white", "King", nonPawnRow, 4);
 
         for(int i = 0; i < NUMCOLS; i++){
-            board[pawnRow][i] = new Pawn(chessBoard,"white", "Pawn", pawnRow, i);
+            board[pawnRow][i] = new Pawn(this,"white", "Pawn", pawnRow, i);
         }
-        board[nonPawnRow][0] = new Rook(chessBoard, "white", "Rook", nonPawnRow, 0);
-        board[nonPawnRow][7] = new Rook(chessBoard, "white", "Rook", nonPawnRow, 7);
-        board[nonPawnRow][1] = new Knight(chessBoard, "white", "Knight", nonPawnRow, 1);
-        board[nonPawnRow][6] = new Knight(chessBoard, "white", "Knight", nonPawnRow, 6);
-        board[nonPawnRow][2] = new Bishop(chessBoard, "white", "Bishop", nonPawnRow, 2);
-        board[nonPawnRow][5] = new Bishop(chessBoard, "white", "Bishop", nonPawnRow, 5);
+        board[nonPawnRow][0] = new Rook(this, "white", "Rook", nonPawnRow, 0);
+        board[nonPawnRow][7] = new Rook(this, "white", "Rook", nonPawnRow, 7);
+        board[nonPawnRow][1] = new Knight(this, "white", "Knight", nonPawnRow, 1);
+        board[nonPawnRow][6] = new Knight(this, "white", "Knight", nonPawnRow, 6);
+        board[nonPawnRow][2] = new Bishop(this, "white", "Bishop", nonPawnRow, 2);
+        board[nonPawnRow][5] = new Bishop(this, "white", "Bishop", nonPawnRow, 5);
         
         
         
 	    pawnRow = NUMROWS - 2;
 	    nonPawnRow = NUMROWS - 1;
 	    
-	    board[nonPawnRow][4] = new Queen(chessBoard, "black", "Queen", nonPawnRow, 4);
-	    board[nonPawnRow][3] = new King(chessBoard, "black", "King", nonPawnRow, 3);
+	    board[nonPawnRow][4] = new Queen(this, "black", "Queen", nonPawnRow, 4);
+	    board[nonPawnRow][3] = new King(this, "black", "King", nonPawnRow, 3);
 	    
 	    for(int i = 0; i < NUMCOLS; i++){
-	        board[pawnRow][i] = new Pawn(chessBoard, "black", "Pawn", pawnRow, i);
+	        board[pawnRow][i] = new Pawn(this, "black", "Pawn", pawnRow, i);
 	    }
 	    
-        board[nonPawnRow][0] = new Rook(chessBoard,"black", "Rook", nonPawnRow, 0);
-        board[nonPawnRow][7] = new Rook(chessBoard, "black", "Rook", nonPawnRow, 7);
-        board[nonPawnRow][1] = new Knight(chessBoard,"black", "Knight", nonPawnRow, 1);
-        board[nonPawnRow][6] = new Knight(chessBoard,"black", "Knight", nonPawnRow, 6);
-        board[nonPawnRow][2] = new Bishop(chessBoard, "black", "Bishop", nonPawnRow, 2);
-        board[nonPawnRow][5] = new Bishop(chessBoard, "black", "Bishop", nonPawnRow, 5);
+        board[nonPawnRow][0] = new Rook(this,"black", "Rook", nonPawnRow, 0);
+        board[nonPawnRow][7] = new Rook(this, "black", "Rook", nonPawnRow, 7);
+        board[nonPawnRow][1] = new Knight(this,"black", "Knight", nonPawnRow, 1);
+        board[nonPawnRow][6] = new Knight(this,"black", "Knight", nonPawnRow, 6);
+        board[nonPawnRow][2] = new Bishop(this, "black", "Bishop", nonPawnRow, 2);
+        board[nonPawnRow][5] = new Bishop(this, "black", "Bishop", nonPawnRow, 5);
 	  
-        return chessBoard;
 	}
-	
-	
 	
 	
 	/**
@@ -173,10 +168,11 @@ public class Board
 	    
 	}
 	
-	public void main(String[] args) {
-	    Board board = this.initialize();
+	
+	public static void main(String[] args) {
+	    Board board = new Board();
+	    board.initialize();
 	    System.out.println(board);
 	}
-	
 
 }

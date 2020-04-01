@@ -1,10 +1,15 @@
 package finalproject;
 
+import java.util.*;
+
 //import java.awt.Color;
 
 public class Board
 {
 	private ChessPiece[][] board;
+	private ArrayList<ChessPiece> whiteCapturedPieces;
+	private ArrayList<ChessPiece> blackCapturedPieces;
+	private HashMap<String, ArrayList<ChessPiece>> capturedPieces;
 	private final int NUMROWS = 8;
 	private final int NUMCOLS = 8;
 
@@ -27,9 +32,8 @@ public class Board
 	
 	/**
 	 * This method is used to initialize the board
-	 *
 	 */
-	private void initialize() {
+	public void initialize() {
 	    
 	    int pawnRow;
 	    int nonPawnRow;
@@ -67,7 +71,15 @@ public class Board
         board[nonPawnRow][6] = new Knight(this,"black", "Knight", nonPawnRow, 6);
         board[nonPawnRow][2] = new Bishop(this, "black", "Bishop", nonPawnRow, 2);
         board[nonPawnRow][5] = new Bishop(this, "black", "Bishop", nonPawnRow, 5);
-	  
+        
+        // initialize ArrayLists to keep track of captured pieces 
+        this.whiteCapturedPieces = new ArrayList<ChessPiece>();
+        this.blackCapturedPieces = new ArrayList<ChessPiece>();
+        
+        // initialize HashMap to keep track of captured pieces of both sides
+        this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
+        this.capturedPieces.put("white", this.whiteCapturedPieces);
+        this.capturedPieces.put("black", this.blackCapturedPieces);
 	}
 	
 	
@@ -81,6 +93,7 @@ public class Board
 	{
 		return board[row][col] != null;
 	}
+
 	
 	/**
 	 * This method returns the ChessPiece at a given row and column
@@ -106,6 +119,7 @@ public class Board
 	 * @return
 	 */
 	public boolean placePiece(ChessPiece piece, int row, int column) {
+	    
 	    // Check if the row and column is occupied
         if(getPiece(row,column) != null){
             ChessPiece occupiedPiece = getPiece(row,column);
@@ -117,10 +131,24 @@ public class Board
             else {
                 // If valid move: update position and remove occupiedPiece
                 if(piece.canMove(row, column)) {
+                    
+                    // change to meaningless value
                     occupiedPiece.setcolumn(11); // set to a meaningless value
                     occupiedPiece.setrow(11); // set to a meaningless value
+                    
+                    
+                    if(occupiedPiece.getColor().equals("white")) {
+                        this.whiteCapturedPieces.add(occupiedPiece);
+                        this.capturedPieces.put("white", this.whiteCapturedPieces);
+                    }
+                    else if(occupiedPiece.getColor().equals("black")) {
+                        this.blackCapturedPieces.add(occupiedPiece);
+                        this.capturedPieces.put("black", this.blackCapturedPieces);
+                    }
+                    
                     piece.setcolumn(column); // set to column
                     piece.setrow(row);  // set to row
+                    
                     return true;
                 }
                 // Otherwise return false
@@ -129,13 +157,14 @@ public class Board
                 }
             }
         }
+        
         // If row and column not occupied, check if validMove? If so update position and return true
         else if (piece.canMove(row, column)) {
             piece.setcolumn(column); // set to column
             piece.setrow(row);  // set to row
             return true;
         }
-        // Else return false
+        // else return false
 	    return false;
 	}
 	
@@ -147,32 +176,23 @@ public class Board
 	 */
 	public void move(ChessPiece piece, int row, int column) {
 	    
-	    // If its not possible to placePiece then make a sound or so
-	    if(this.placePiece(piece, row, column)== false) {
-	        // make a sound or so
+	    // check if valid row and column
+	    if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
+	        
+	        // If its not possible to placePiece then make a sound or so
+            if(this.placePiece(piece, row, column)== false) {
+                // make a sound or so
+            }
+            
+            // Otherwise just move piece
+            else {
+                this.placePiece(piece, row, column);
+            }
 	    }
-	    // Otherwise just move piece
 	    else {
-	        this.placePiece(piece, row, column);
+	        // Print something or make sound
 	    }
 	    
-	    /*
-	    if(piece.canMove(row, column) == true) {
-	        piece.setrow(row);
-	        piece.setcolumn(column);
-	    }
-	    else {
-	        // Print something or make a sound or something
-	    }
-	    */
-	    
-	}
-	
-	
-	public static void main(String[] args) {
-	    Board board = new Board();
-	    board.initialize();
-	    System.out.println(board);
 	}
 
 }

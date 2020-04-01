@@ -21,7 +21,13 @@ public class King extends ChessPiece {
 
     }
     
-
+    /**
+     * Note this needs to have parameters such as other piece etc maybe from GUI?
+     * @return
+     */
+    public boolean isValidCastling() {
+        return false;
+    }
     
     /**
      * This method checks whether a ChessPiece can move or not
@@ -41,6 +47,9 @@ public class King extends ChessPiece {
             if(this.isValidKingMove(row, column, currentRow, currentColumn)) {
                 return this.isValidKingMove(row, column, currentRow, currentColumn);
             }
+                
+            // Check to see if Castling happens
+            
         }
         return false;
     }

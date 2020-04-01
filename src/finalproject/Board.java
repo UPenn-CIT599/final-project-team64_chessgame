@@ -194,5 +194,25 @@ public class Board
 	    }
 	    
 	}
-
+	
+	/**
+	 * This method displays the board
+	 */
+	public void display() {
+	    
+	}
+	
+	/**
+	 * This method updates the board
+	 */
+	public void update() {
+	    
+	}
+	
+	/**
+	 * This method checks whether king would be checkmate or not
+	 */
+	public boolean checkKingCheckMate() {
+	    return false;
+	}
 }

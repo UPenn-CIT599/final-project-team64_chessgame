@@ -21,7 +21,11 @@ public class Pawn extends ChessPiece {
 
     }
     
-
+    
+    public boolean isSpecialMove() {
+        return false;
+    }
+    
     /**
      * This method checks whether a ChessPiece can move or not
      * @return
@@ -56,6 +60,8 @@ public class Pawn extends ChessPiece {
             if(this.isValidWhitePawnMove( row, column, currentRow,  currentColumn)) {
                 return this.isValidWhitePawnMove( row, column, currentRow,  currentColumn);
             }
+            
+            // Check to see if special move
         }
         
         else if(this.getColor().equals("black")) {
@@ -63,6 +69,8 @@ public class Pawn extends ChessPiece {
             if(this.isValidBlackPawnMove( row, column, currentRow,  currentColumn)) {
                 return this.isValidBlackPawnMove( row, column, currentRow,  currentColumn);
             }
+            
+            // Check to see if special Move
         }
 
         return false;

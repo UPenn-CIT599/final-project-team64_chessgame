@@ -31,10 +31,6 @@ public class Rook extends ChessPiece {
         int currentRow= this.getrow();
         int currentColumn = this.getcolumn();
         
-        // If space occupied and by the same color return false
-        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
-            return false;
-        }
         // Otherwise check if move can be made
         if(this.isValidHorizontalMove(row, column, currentRow, currentColumn)) {
             return isValidHorizontalMove(row, column, currentRow, currentColumn);

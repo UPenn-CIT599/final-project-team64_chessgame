@@ -17,6 +17,7 @@ public class Board{
 	 * It initializes the board to a zero board 
 	 */
 	public Board(){
+<<<<<<< HEAD
 	  
 	  ChessPiece[][] board = new ChessPiece[NUMROWS][NUMCOLS];
 	    
@@ -26,6 +27,10 @@ public class Board{
               board[i][j] = null;
           }
 	  }  
+=======
+	  board = new ChessPiece[NUMROWS][NUMCOLS];
+	  // PK response: made relevant change (deleted code)
+>>>>>>> c7dc650
 	}
 	
 	/**
@@ -43,8 +48,11 @@ public class Board{
     public int getBoardWidth() {
         return this.board[0].length;
     }
+<<<<<<< HEAD
    
 	
+=======
+>>>>>>> c7dc650
     
 	/**
 	 * This method is used to initialize the board
@@ -88,10 +96,13 @@ public class Board{
         board[nonPawnRow][5] = new Bishop(this, "black", "Bishop", nonPawnRow, 5);
         
         // initialize ArrayLists to keep track of captured pieces 
-        this.whiteCapturedPieces = new ArrayList<ChessPiece>();
+        this.whiteCapturedPieces = new ArrayList<ChessPiece>();//why the this?
         this.blackCapturedPieces = new ArrayList<ChessPiece>();
         
-        // initialize HashMap to keep track of captured pieces of both sides
+        // Initialize HashMap to keep track of captured pieces of both sides  WHY THE HASHMAP??
+            // PK response: We could use this hash map for the special move for Pawn later
+            // when we would want to bring back captured pieces
+            // No harm keeping it for now!
         this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
         this.capturedPieces.put("white", this.whiteCapturedPieces);
         this.capturedPieces.put("black", this.blackCapturedPieces);
@@ -117,12 +128,9 @@ public class Board{
 	 * @return
 	 */
 	public ChessPiece getPiece(int row, int column) {
-	    
-	    if(isSpaceOccupied(row,column)) {
-	        ChessPiece piece = board[row][column];
-	        return piece;
-	    }
-        return null;
+	    // PK: done what you recommended
+	   return board[row][column];  
+	   
 	}
 	
 	/**
@@ -147,8 +155,11 @@ public class Board{
                 // If valid move: update position and remove occupiedPiece
                 if(piece.canMove(row, column)) {
                     
-                    // change to meaningless value
-                    occupiedPiece.setcolumn(11); // set to a meaningless value
+                	//PERHAPS CHANGE TO NULL?? 
+                        // PK response : DOES NOT WORK! needs to be an integer?
+                        // May need to test this however
+                	    // change to meaningless value
+                    occupiedPiece.setcolumn(11); // set to a meaningless value 
                     occupiedPiece.setrow(11); // set to a meaningless value
                     
                     
@@ -156,11 +167,16 @@ public class Board{
                         this.whiteCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("white", this.whiteCapturedPieces);
                     }
+                    
+                    //HASHMAP REDUNDANT???
+                        // PK response: Keep for now for Pawn special move to bring back captured pieces
                     else if(occupiedPiece.getColor().equals("black")) {
                         this.blackCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("black", this.blackCapturedPieces);
                     }
                     
+                    board[row][column] = board[piece.getrow()][piece.getcolumn()];
+                    board[piece.getrow()][piece.getcolumn()] = null;
                     piece.setcolumn(column); // set to column
                     piece.setrow(row);  // set to row
                     
@@ -175,8 +191,12 @@ public class Board{
         
         // If row and column not occupied, check if validMove? If so update position and return true
         else if (piece.canMove(row, column)) {
+  
+            board[row][column] = board[piece.getrow()][piece.getcolumn()];
+            board[piece.getrow()][piece.getcolumn()] = null;
             piece.setcolumn(column); // set to column
             piece.setrow(row);  // set to row
+            
             return true;
         }
         // else return false
@@ -196,29 +216,50 @@ public class Board{
 	        
 	        // If its not possible to placePiece then make a sound or so
             if(this.placePiece(piece, row, column)== false) {
+                return;
                 // make a sound or so
             }
-            
+            //NO NEED FOR ELSE STATEMENT HERE.. 
             // Otherwise just move piece
-            else {
-                this.placePiece(piece, row, column);
-            }
+            this.placePiece(piece, row, column);
+            
 	    }
 	    else {
 	        // Print something or make sound
+	        return;
 	    }
 	    
 	}
 	
 	/**
 	 * This method displays the board
+	 * Used String only for JUnit purposes.
 	 */
-	public void display() {
-	    
+	public String display() {
+		String result = "";
+	    for (int i = 0; i < board.length; i++)
+		{
+			for (int j = 0; j < board[0].length; j++)
+			{
+				if(board[i][j] == null)
+				{
+					result += "|  ";
+				}
+				else
+				{
+					result += "|" + board[i][j].getColor().charAt(0) + board[i][j].getType().charAt(0);
+				}
+			}
+			result += "|\n";
+		}
+	    return result;
 	}
 	
 	/*
+<<<<<<< HEAD
 	/**
+=======
+>>>>>>> c7dc650
 	 * This method updates the board
 	 * may not need this
 	public void update() {
@@ -234,6 +275,7 @@ public class Board{
 	    return false;
 	}
 	
+<<<<<<< HEAD
 	
 	public static void main(String[] args) {
 	    
@@ -244,4 +286,6 @@ public class Board{
 
 	}
 	
+=======
+>>>>>>> c7dc650
 }

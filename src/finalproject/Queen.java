@@ -32,12 +32,7 @@ public class Queen extends ChessPiece {
         
         int currentRow= this.getrow();
         int currentColumn = this.getcolumn();
-        
-        // If space occupied and by the same color return false
-        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
-            return false;
-        }
-        
+
         // Otherwise check if valid move
         if(this.isValidDiagonalMove(row, column, currentRow, currentColumn)) {
             return isValidDiagonalMove(row, column, currentRow, currentColumn);

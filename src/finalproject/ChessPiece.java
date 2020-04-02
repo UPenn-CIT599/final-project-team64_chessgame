@@ -24,6 +24,7 @@ public abstract class ChessPiece {
         this.type = type;
         this.row = row;
         this.column = column;
+        
     }
     
     /**

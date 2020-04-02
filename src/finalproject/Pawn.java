@@ -36,24 +36,6 @@ public class Pawn extends ChessPiece {
         int currentRow= this.getrow();
         int currentColumn = this.getcolumn();
         
-        // If space occupied and by the same color return false
-        if((this.getBoard().isSpaceOccupied(row, column)) & (this.getBoard().getPiece(row,column).getColor() == this.getColor())) {
-            
-            // check if trying to make diagonal move to capture piece 
-            if(this.getColor().equals("white")) {
-                if((row - currentRow == 1) & Math.abs(column-currentColumn) == 1) {
-                    return true;
-                }
-            }
-            
-            if(this.getColor().equals("black")) {
-                if((currentRow - row == 1) & Math.abs(column-currentColumn) == 1) {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
         
         if(this.getColor().equals("white")) {
             // Otherwise check if move can be made

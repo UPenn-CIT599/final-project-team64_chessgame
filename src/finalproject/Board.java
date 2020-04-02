@@ -17,20 +17,8 @@ public class Board{
 	 * It initializes the board to a zero board 
 	 */
 	public Board(){
-	  
 	  board = new ChessPiece[NUMROWS][NUMCOLS];
-	    
-	  // Initialize board to zero
-	  //ALREADY EQUAL TO NULL?  REDUNDANT??
-	  for(int i = 0; i < board.length; i++) {
-<<<<<<< HEAD
-	      for(int j = 0; j<board[0].length; j++){//Why at 0 index?  Is this the "i" position?
-=======
-	      for(int j = 0; j <board[0].length; j++){
->>>>>>> First Draft Test
-              board[i][j] = null;
-          }
-	  }  
+	  // PK response: made relevant change (deleted code)
 	}
 	
 	/**
@@ -48,8 +36,6 @@ public class Board{
     public int getBoardWidth() {
         return this.board[0].length;
     }
-   
-	
     
 	/**
 	 * This method is used to initialize the board
@@ -96,7 +82,10 @@ public class Board{
         this.whiteCapturedPieces = new ArrayList<ChessPiece>();//why the this?
         this.blackCapturedPieces = new ArrayList<ChessPiece>();
         
-        // initialize HashMap to keep track of captured pieces of both sides  WHY THE HASHMAP??
+        // Initialize HashMap to keep track of captured pieces of both sides  WHY THE HASHMAP??
+            // PK response: We could use this hash map for the special move for Pawn later
+            // when we would want to bring back captured pieces
+            // No harm keeping it for now!
         this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
         this.capturedPieces.put("white", this.whiteCapturedPieces);
         this.capturedPieces.put("black", this.blackCapturedPieces);
@@ -122,13 +111,9 @@ public class Board{
 	 * @return
 	 */
 	public ChessPiece getPiece(int row, int column) {
-	    
-	   //return board[row][column];  Will work same as next three lines..
-		if(isSpaceOccupied(row,column)) {
-	        ChessPiece piece = board[row][column];
-	        return piece;
-	    }
-        return null;
+	    // PK: done what you recommended
+	   return board[row][column];  
+	   
 	}
 	
 	/**
@@ -153,8 +138,10 @@ public class Board{
                 // If valid move: update position and remove occupiedPiece
                 if(piece.canMove(row, column)) {
                     
-                	//PERHAPS CHANGE TO NULL??
-                	// change to meaningless value
+                	//PERHAPS CHANGE TO NULL?? 
+                        // PK response : DOES NOT WORK! needs to be an integer?
+                        // May need to test this however
+                	    // change to meaningless value
                     occupiedPiece.setcolumn(11); // set to a meaningless value 
                     occupiedPiece.setrow(11); // set to a meaningless value
                     
@@ -163,12 +150,16 @@ public class Board{
                         this.whiteCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("white", this.whiteCapturedPieces);
                     }
+                    
                     //HASHMAP REDUNDANT???
+                        // PK response: Keep for now for Pawn special move to bring back captured pieces
                     else if(occupiedPiece.getColor().equals("black")) {
                         this.blackCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("black", this.blackCapturedPieces);
                     }
                     
+                    board[row][column] = board[piece.getrow()][piece.getcolumn()];
+                    board[piece.getrow()][piece.getcolumn()] = null;
                     piece.setcolumn(column); // set to column
                     piece.setrow(row);  // set to row
                     
@@ -183,8 +174,12 @@ public class Board{
         
         // If row and column not occupied, check if validMove? If so update position and return true
         else if (piece.canMove(row, column)) {
+  
+            board[row][column] = board[piece.getrow()][piece.getcolumn()];
+            board[piece.getrow()][piece.getcolumn()] = null;
             piece.setcolumn(column); // set to column
             piece.setrow(row);  // set to row
+            
             return true;
         }
         // else return false
@@ -204,16 +199,17 @@ public class Board{
 	        
 	        // If its not possible to placePiece then make a sound or so
             if(this.placePiece(piece, row, column)== false) {
+                return;
                 // make a sound or so
             }
             //NO NEED FOR ELSE STATEMENT HERE.. 
             // Otherwise just move piece
-            else {
-                this.placePiece(piece, row, column);
-            }
+            this.placePiece(piece, row, column);
+            
 	    }
 	    else {
 	        // Print something or make sound
+	        return;
 	    }
 	    
 	}
@@ -243,7 +239,6 @@ public class Board{
 	}
 	
 	/*
-	/**
 	 * This method updates the board
 	 * may not need this
 	public void update() {
@@ -257,16 +252,6 @@ public class Board{
 	 */
 	public boolean checkKingCheckMate() {
 	    return false;
-	}
-	
-	
-	public static void main(String[] args) {
-	    
-	    Board board = new Board();
-	    Queen queen = new Queen(board, "white", "Queen", 0, 3);
-	    System.out.println(queen.getColor());
-        board.initialize();
-
 	}
 	
 }

@@ -19,11 +19,12 @@ public class Board
 	 */
 	public Board(){
 	  
-	  ChessPiece[][] board = new ChessPiece[NUMROWS][NUMCOLS];
+	  board = new ChessPiece[NUMROWS][NUMCOLS];
 	    
 	  // Initialize board to zero
+	  //ALREADY EQUAL TO NULL?  REDUNDANT??
 	  for(int i = 0; i < board.length; i++) {
-	      for(int j = 0; j<board[0].length; j++){
+	      for(int j = 0; j<board[0].length; j++){//Why at 0 index?  Is this the "i" position?
               board[i][j] = null;
           }
 	  }  
@@ -73,10 +74,10 @@ public class Board
         board[nonPawnRow][5] = new Bishop(this, "black", "Bishop", nonPawnRow, 5);
         
         // initialize ArrayLists to keep track of captured pieces 
-        this.whiteCapturedPieces = new ArrayList<ChessPiece>();
+        this.whiteCapturedPieces = new ArrayList<ChessPiece>();//why the this?
         this.blackCapturedPieces = new ArrayList<ChessPiece>();
         
-        // initialize HashMap to keep track of captured pieces of both sides
+        // initialize HashMap to keep track of captured pieces of both sides  WHY THE HASHMAP??
         this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
         this.capturedPieces.put("white", this.whiteCapturedPieces);
         this.capturedPieces.put("black", this.blackCapturedPieces);
@@ -103,7 +104,8 @@ public class Board
 	 */
 	public ChessPiece getPiece(int row, int column) {
 	    
-	    if(isSpaceOccupied(row,column)) {
+	   //return board[row][column];  Will work same as next three lines..
+		if(isSpaceOccupied(row,column)) {
 	        ChessPiece piece = board[row][column];
 	        return piece;
 	    }
@@ -132,8 +134,9 @@ public class Board
                 // If valid move: update position and remove occupiedPiece
                 if(piece.canMove(row, column)) {
                     
-                    // change to meaningless value
-                    occupiedPiece.setcolumn(11); // set to a meaningless value
+                	//PERHAPS CHANGE TO NULL??
+                	// change to meaningless value
+                    occupiedPiece.setcolumn(11); // set to a meaningless value 
                     occupiedPiece.setrow(11); // set to a meaningless value
                     
                     
@@ -141,6 +144,7 @@ public class Board
                         this.whiteCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("white", this.whiteCapturedPieces);
                     }
+                    //HASHMAP REDUNDANT???
                     else if(occupiedPiece.getColor().equals("black")) {
                         this.blackCapturedPieces.add(occupiedPiece);
                         this.capturedPieces.put("black", this.blackCapturedPieces);
@@ -183,7 +187,7 @@ public class Board
             if(this.placePiece(piece, row, column)== false) {
                 // make a sound or so
             }
-            
+            //NO NEED FOR ELSE STATEMENT HERE.. 
             // Otherwise just move piece
             else {
                 this.placePiece(piece, row, column);
@@ -197,9 +201,26 @@ public class Board
 	
 	/**
 	 * This method displays the board
+	 * Used String only for JUnit purposes.
 	 */
-	public void display() {
-	    
+	public String display() {
+		String result = "";
+	    for (int i = 0; i < board.length; i++)
+		{
+			for (int j = 0; j < board[0].length; j++)
+			{
+				if(board[i][j] == null)
+				{
+					result += "|  ";
+				}
+				else
+				{
+					result += "|" + board[i][j].getColor().charAt(0) + board[i][j].getType().charAt(0);
+				}
+			}
+			result += "|\n";
+		}
+	    return result;
 	}
 	
 	/**

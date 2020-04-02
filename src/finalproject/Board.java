@@ -4,8 +4,7 @@ import java.util.*;
 
 //import java.awt.Color;
 
-public class Board
-{
+public class Board{
 	private ChessPiece[][] board;
 	private ArrayList<ChessPiece> whiteCapturedPieces;
 	private ArrayList<ChessPiece> blackCapturedPieces;
@@ -24,29 +23,51 @@ public class Board
 	  // Initialize board to zero
 	  //ALREADY EQUAL TO NULL?  REDUNDANT??
 	  for(int i = 0; i < board.length; i++) {
+<<<<<<< HEAD
 	      for(int j = 0; j<board[0].length; j++){//Why at 0 index?  Is this the "i" position?
+=======
+	      for(int j = 0; j <board[0].length; j++){
+>>>>>>> First Draft Test
               board[i][j] = null;
           }
 	  }  
-	  
 	}
 	
+	/**
+	 * This is the board constructor. 
+	 * @return
+	 */
+	public int getBoardLength() {
+	    return this.board.length;
+	}
+	
+	/**
+	 * This is the board constructor. 
+	 * @return
+	 */
+    public int getBoardWidth() {
+        return this.board[0].length;
+    }
+   
+	
+    
 	/**
 	 * This method is used to initialize the board
 	 */
 	public void initialize() {
 	    
 	    int pawnRow;
-	    int nonPawnRow;
-	    
+        int nonPawnRow;
+        
 	    pawnRow = 1;
 	    nonPawnRow = 0; 
 	    board[nonPawnRow][3] = new Queen(this, "white", "Queen", nonPawnRow, 3);
 	    board[nonPawnRow][4] = new King(this, "white", "King", nonPawnRow, 4);
-
+	     
         for(int i = 0; i < NUMCOLS; i++){
             board[pawnRow][i] = new Pawn(this,"white", "Pawn", pawnRow, i);
         }
+         
         board[nonPawnRow][0] = new Rook(this, "white", "Rook", nonPawnRow, 0);
         board[nonPawnRow][7] = new Rook(this, "white", "Rook", nonPawnRow, 7);
         board[nonPawnRow][1] = new Knight(this, "white", "Knight", nonPawnRow, 1);
@@ -54,18 +75,16 @@ public class Board
         board[nonPawnRow][2] = new Bishop(this, "white", "Bishop", nonPawnRow, 2);
         board[nonPawnRow][5] = new Bishop(this, "white", "Bishop", nonPawnRow, 5);
         
+        pawnRow = NUMROWS - 2;
+        nonPawnRow = NUMROWS - 1;
         
+        board[nonPawnRow][4] = new Queen(this, "black", "Queen", nonPawnRow, 4);
+        board[nonPawnRow][3] = new King(this, "black", "King", nonPawnRow, 3);
         
-	    pawnRow = NUMROWS - 2;
-	    nonPawnRow = NUMROWS - 1;
-	    
-	    board[nonPawnRow][4] = new Queen(this, "black", "Queen", nonPawnRow, 4);
-	    board[nonPawnRow][3] = new King(this, "black", "King", nonPawnRow, 3);
-	    
-	    for(int i = 0; i < NUMCOLS; i++){
-	        board[pawnRow][i] = new Pawn(this, "black", "Pawn", pawnRow, i);
-	    }
-	    
+        for(int i = 0; i < NUMCOLS; i++){
+            board[pawnRow][i] = new Pawn(this, "black", "Pawn", pawnRow, i);
+        }
+        
         board[nonPawnRow][0] = new Rook(this,"black", "Rook", nonPawnRow, 0);
         board[nonPawnRow][7] = new Rook(this, "black", "Rook", nonPawnRow, 7);
         board[nonPawnRow][1] = new Knight(this,"black", "Knight", nonPawnRow, 1);
@@ -81,6 +100,7 @@ public class Board
         this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
         this.capturedPieces.put("white", this.whiteCapturedPieces);
         this.capturedPieces.put("black", this.blackCapturedPieces);
+	
 	}
 	
 	
@@ -90,8 +110,7 @@ public class Board
 	 * @param col
 	 * @return
 	 */
-	public boolean isSpaceOccupied(int row, int col)
-	{
+	public boolean isSpaceOccupied(int row, int col){
 		return board[row][col] != null;
 	}
 
@@ -223,17 +242,31 @@ public class Board
 	    return result;
 	}
 	
+	/*
 	/**
 	 * This method updates the board
-	 */
+	 * may not need this
 	public void update() {
 	    
 	}
+	*/
 	
 	/**
-	 * This method checks whether king would be checkmate or not
+	 * This method checks whether king would be check mate or not
+	 * Would take a Piece and see if it leads to check mate?
 	 */
 	public boolean checkKingCheckMate() {
 	    return false;
 	}
+	
+	
+	public static void main(String[] args) {
+	    
+	    Board board = new Board();
+	    Queen queen = new Queen(board, "white", "Queen", 0, 3);
+	    System.out.println(queen.getColor());
+        board.initialize();
+
+	}
+	
 }

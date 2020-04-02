@@ -18,6 +18,7 @@ public abstract class ChessPiece {
      * This is the constructor for the ChessPiece
      */
     public ChessPiece(Board board, String color, String type, int row, int column) {
+        
         this.board = board;
         this.color = color;
         this.type = type;
@@ -46,6 +47,7 @@ public abstract class ChessPiece {
     public void setColor(String color) {
         this.color = color;
     }
+    
     /**
      * @return the type
      */
@@ -181,8 +183,7 @@ public abstract class ChessPiece {
     }
     
     /**
-     * This method checks whether 
-     * we have a valid Vertical Move or not
+     * This method checks whether we have a valid Vertical Move or not
      * @param row
      * @param column
      * @param currentRow

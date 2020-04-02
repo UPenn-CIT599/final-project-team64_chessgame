@@ -1,4 +1,4 @@
-package tests;
+package finalproject.tests;
 import static org.junit.Assert.*;
 
 import org.junit.After;

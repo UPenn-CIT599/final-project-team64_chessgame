@@ -7,11 +7,10 @@ import org.junit.Test;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
-
 import finalproject.Board;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class BoardTest{
+    @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+    public class BoardTest{
     private static Board board;
     
     /**

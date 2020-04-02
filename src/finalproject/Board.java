@@ -17,7 +17,7 @@ public class Board{
 	 * It initializes the board to a zero board 
 	 */
 	public Board(){
-<<<<<<< HEAD
+
 	  
 	  ChessPiece[][] board = new ChessPiece[NUMROWS][NUMCOLS];
 	    
@@ -27,10 +27,10 @@ public class Board{
               board[i][j] = null;
           }
 	  }  
-=======
+
 	  board = new ChessPiece[NUMROWS][NUMCOLS];
 	  // PK response: made relevant change (deleted code)
->>>>>>> c7dc650
+
 	}
 	
 	/**
@@ -48,11 +48,7 @@ public class Board{
     public int getBoardWidth() {
         return this.board[0].length;
     }
-<<<<<<< HEAD
-   
-	
-=======
->>>>>>> c7dc650
+
     
 	/**
 	 * This method is used to initialize the board
@@ -191,9 +187,10 @@ public class Board{
         
         // If row and column not occupied, check if validMove? If so update position and return true
         else if (piece.canMove(row, column)) {
-  
+            // update the board
             board[row][column] = board[piece.getrow()][piece.getcolumn()];
             board[piece.getrow()][piece.getcolumn()] = null;
+            // change the piece 
             piece.setcolumn(column); // set to column
             piece.setrow(row);  // set to row
             
@@ -255,18 +252,7 @@ public class Board{
 	    return result;
 	}
 	
-	/*
-<<<<<<< HEAD
-	/**
-=======
->>>>>>> c7dc650
-	 * This method updates the board
-	 * may not need this
-	public void update() {
-	    
-	}
-	*/
-	
+
 	/**
 	 * This method checks whether king would be check mate or not
 	 * Would take a Piece and see if it leads to check mate?
@@ -275,7 +261,6 @@ public class Board{
 	    return false;
 	}
 	
-<<<<<<< HEAD
 	
 	public static void main(String[] args) {
 	    
@@ -286,6 +271,5 @@ public class Board{
 
 	}
 	
-=======
->>>>>>> c7dc650
+
 }

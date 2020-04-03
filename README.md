@@ -1,6 +1,8 @@
 # final-project-team64_chessgame
 final-project-team64_chessgame created by GitHub Classroom
 
+/** This file is best viewed in "<>Edit file" mode. */
+
 Notes for April 06, 2020, Milestone deliverable.
 
 1. We currently have 10 classes planned. Among these classes are several fully developed methods including:

@@ -55,10 +55,12 @@ public class TestTemplate {
         assertTrue1(condition6);
     }
 
+    /*
     @After
     public void deleteSetUp() {
         Object setUp;
         setUp.delete();
     }
-
+    */
+    
 }

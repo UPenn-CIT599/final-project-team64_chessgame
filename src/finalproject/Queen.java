@@ -4,13 +4,13 @@ package finalproject;
  * The Queen class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the queen of both teams.
  *
- * @author Team 64 - JMG
  * Moves to be checked for: regular capture move
  */
 public class Queen extends ChessPiece {
     
     /**
      * This extends the super constructor for Queen
+     * @param board
      * @param color
      * @param type
      * @param row

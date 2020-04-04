@@ -289,11 +289,19 @@ public abstract class ChessPiece {
                 }
                 return true;
             }
+            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
+                if((Math.abs(column - currentColumn)== 1) & (row-currentRow == 1)) {
+                    return true;
+                }
+            }
         }
         else {
             if((row-currentRow == 1) & (Math.abs(column-currentColumn) == 0)) {
                 
                 return true;
+            }
+            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
+                
             }
         }
         
@@ -313,8 +321,7 @@ public abstract class ChessPiece {
         // If not check for valid move
         if(currentRow == 6) {
             
-            if((currentRow-row == 1) & (Math.abs(column-currentColumn) == 0)) {
-      
+            if((currentRow-row == 1) & (Math.abs(column-currentColumn) == 0)) { 
                 return true;
             }
             else if((currentRow -row == 2) & (Math.abs(column-currentColumn) == 0)) {
@@ -323,6 +330,11 @@ public abstract class ChessPiece {
                     return false;
                 }
                 return true;
+            }
+            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
+                if(((column - currentColumn)== 1) & (Math.abs(row-currentRow) == 1)) {
+                    return true;
+                }
             }
         }
         else {

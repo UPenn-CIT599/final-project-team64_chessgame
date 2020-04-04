@@ -46,7 +46,7 @@ public class Queen extends ChessPiece {
         
         // Otherwise move is not valid and return false
         return false;
+        
     }
 
 }
-

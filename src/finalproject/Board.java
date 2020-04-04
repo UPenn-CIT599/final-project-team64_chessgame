@@ -17,22 +17,23 @@ public class Board{
 	 */
 	public Board(){
 
-	  
-	  ChessPiece[][] board = new ChessPiece[NUMROWS][NUMCOLS];
+	  this.board = new ChessPiece[NUMROWS][NUMCOLS];
 	    
-	  // Initialize board to zero
-	  for(int i = 0; i < board.length; i++) {
-	      for(int j = 0; j <board[0].length; j++){
-              board[i][j] = null;
-          }
-	  }  
-
-	  board = new ChessPiece[NUMROWS][NUMCOLS];
-	  // PK response: made relevant change (deleted code)
-
 	}
     
-	/**
+	public ArrayList<ChessPiece> getWhiteCapturedPieces() {
+        return whiteCapturedPieces;
+    }
+
+
+
+    public ArrayList<ChessPiece> getBlackCapturedPieces() {
+        return blackCapturedPieces;
+    }
+
+
+
+    /**
 	 * This method is used to initialize the board
 	 */
 	public void initialize() {
@@ -98,9 +99,7 @@ public class Board{
 	 * @return
 	 */
 	public ChessPiece getPiece(int row, int column) {
-	    // PK: done what you recommended
 	   return board[row][column];  
-	   
 	}
 	
 	/**
@@ -114,10 +113,10 @@ public class Board{
 	public boolean placePiece(ChessPiece piece, int row, int column) {
 	    
 	    // Check if the row and column is occupied
-        if(getPiece(row,column) != null){
+        if(this.isSpaceOccupied(row,column) != false){
             ChessPiece occupiedPiece = getPiece(row,column);
             // If piece is occupied and color same as potential piece: return false
-            if(occupiedPiece.getColor() == piece.getColor()) {
+            if((occupiedPiece.getColor() == piece.getColor())){
                 return false;
             }
             // Otherwise check if valid move if so update position and remove occupiedPiece
@@ -125,10 +124,9 @@ public class Board{
                 // If valid move: update position and remove occupiedPiece
                 if(piece.canMove(row, column)) {
                     
-                	//PERHAPS CHANGE TO NULL?? 
-                        // PK response : Would not work, needs to be an integer?
+                	//PERHAPS CHANGE TO NULL?? : Explore later
                     occupiedPiece.setcolumn(11); // set to a meaningless value 
-                    occupiedPiece.setrow(11); // set to a meaningless value
+                    occupiedPiece.setrow(11);    // set to a meaningless value
                     
                     
                     if(occupiedPiece.getColor().equals("white")) {
@@ -202,15 +200,4 @@ public class Board{
 	    return false;
 	}
 	
-	
-	public static void main(String[] args) {
-	    
-	    Board board = new Board();
-	    Queen queen = new Queen(board, "white", "Queen", 0, 3);
-	    System.out.println(queen.getColor());
-        board.initialize();
-
-	}
-	
-
 }

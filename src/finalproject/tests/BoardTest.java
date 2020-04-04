@@ -23,19 +23,6 @@ import finalproject.Board;
         board.initialize();
     }
     
-    /*
-    @Test
-    public void testInitialize() {
-        // Check to see if hash maps initialized appropriately
-    }
-    
-
-    @Test
-    void testCheckKingCheckMate() {
-        // Check to see when method written
-    }
-    */
-    
     @Test
     public void testDisplay(){
         String expectedResult = 
@@ -58,7 +45,7 @@ import finalproject.Board;
         assertEquals(board.getPiece(1, 0).getType(), "Pawn");
         assertEquals(board.getPiece(1, 0).getColor(), "white");
         
-        // test to see if basic valid pawn move does not work
+        // test to see if basic valid pawn move works
         board.placePiece(board.getPiece(1,0),3,0);
             // Check there is a white pawn in the new location
         assertEquals(board.getPiece(3, 0).getType(), "Pawn");
@@ -66,7 +53,37 @@ import finalproject.Board;
             // Check that there is no longer a white pawn in the previous location
         assertEquals(board.isSpaceOccupied(1, 0), false);
         
-        // need to develop a scenario to test occupied pieces
+        // test to see if move to occupied piece does not work: use knight
+        board.placePiece(board.getPiece(0,1),1,4); // try to move knight to a place where pawn occupied
+            // Check to see if knight still in its position
+        assertEquals(board.getPiece(0,1).getType(), "Knight");
+        assertEquals(board.getPiece(0,1).getColor(), "white");
+            // Check to see pawn still in position trying to move 
+        assertEquals(board.getPiece(1,4).getType(), "Pawn");
+        assertEquals(board.getPiece(1,4).getColor(), "white");
+        
+        // test to see if captured pieces works
+        board.placePiece(board.getPiece(1,1),3,1); // move white pawn to see if we can capture piece
+        board.placePiece(board.getPiece(7,1),5,0); // move black knight to capture white pawn
+            // test to see if pieces have indeed moved from original position
+                // white pawn
+            assertEquals(board.getPiece(3,1).getType(), "Pawn");
+            assertEquals(board.getPiece(3,1).getColor(), "white");
+            assertEquals(board.isSpaceOccupied(1,1), false);
+                // black knight
+            assertEquals(board.getPiece(5,0).getType(), "Knight");
+            assertEquals(board.getPiece(5,0).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(7,1), false);
+            // test to see if we can capture the piece
+            board.placePiece(board.getPiece(5,0),3,1); // now have the black knight capture white pawn
+                // Check to see if black knight has moved to new location
+            assertEquals(board.getPiece(3,1).getType(), "Knight"); 
+            assertEquals(board.getPiece(3,1).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(5,0), false);
+                // Check to see if white pawn has been captured and is in captured pieces array
+            assertEquals(board.getWhiteCapturedPieces().get(0).getType(), "Pawn");
+            assertEquals(board.getWhiteCapturedPieces().get(0).getColor(), "white");
+
     }
 
 }

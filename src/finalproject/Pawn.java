@@ -39,7 +39,7 @@ public class Pawn extends ChessPiece {
         
         if(this.getColor().equals("white")) {
             // Otherwise check if move can be made
-            if(this.isValidWhitePawnMove( row, column, currentRow,  currentColumn)) {
+            if(this.isValidWhitePawnMove(row, column, currentRow,  currentColumn)) {
                 return this.isValidWhitePawnMove( row, column, currentRow,  currentColumn);
             }
             

@@ -6,9 +6,15 @@ package finalproject.tests;
 
 import finalproject.Board;
 
-    public class TestRunner {
+/** 
+ * This class launches the tests in the test suite
+ */
+public class TestRunner {
         
-       public static void main(String[] args) {
+ /** 
+ * This method initiates the junit testing methods
+ */
+    public static void main(String[] args) {
            
           Result result = JUnitCore.runClasses(JunitTestSuite.class);
 

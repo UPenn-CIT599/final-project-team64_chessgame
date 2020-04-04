@@ -23,12 +23,6 @@ import finalproject.Board;
         board.initialize();
     }
     
-    @Test
-    public void testBoard() {
-        assertEquals(board.getBoardLength(), 8);
-        assertEquals(board.getBoardWidth(), 8);
-    }
-    
     /*
     @Test
     public void testInitialize() {

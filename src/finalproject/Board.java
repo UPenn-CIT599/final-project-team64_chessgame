@@ -8,7 +8,6 @@ public class Board{
 	private ChessPiece[][] board;
 	private ArrayList<ChessPiece> whiteCapturedPieces;
 	private ArrayList<ChessPiece> blackCapturedPieces;
-	private HashMap<String, ArrayList<ChessPiece>> capturedPieces;
 	private final int NUMROWS = 8;
 	private final int NUMCOLS = 8;
 
@@ -32,23 +31,6 @@ public class Board{
 	  // PK response: made relevant change (deleted code)
 
 	}
-	
-	/**
-	 * This is the board constructor. 
-	 * @return
-	 */
-	public int getBoardLength() {
-	    return this.board.length;
-	}
-	
-	/**
-	 * This is the board constructor. 
-	 * @return
-	 */
-    public int getBoardWidth() {
-        return this.board[0].length;
-    }
-
     
 	/**
 	 * This method is used to initialize the board
@@ -92,16 +74,8 @@ public class Board{
         board[nonPawnRow][5] = new Bishop(this, "black", "Bishop", nonPawnRow, 5);
         
         // initialize ArrayLists to keep track of captured pieces 
-        this.whiteCapturedPieces = new ArrayList<ChessPiece>();//why the this?
-        this.blackCapturedPieces = new ArrayList<ChessPiece>();
-        
-        // Initialize HashMap to keep track of captured pieces of both sides  WHY THE HASHMAP??
-            // PK response: We could use this hash map for the special move for Pawn later
-            // when we would want to bring back captured pieces
-            // No harm keeping it for now!
-        this.capturedPieces = new HashMap<String, ArrayList<ChessPiece>>();
-        this.capturedPieces.put("white", this.whiteCapturedPieces);
-        this.capturedPieces.put("black", this.blackCapturedPieces);
+        whiteCapturedPieces = new ArrayList<ChessPiece>();
+        blackCapturedPieces = new ArrayList<ChessPiece>();
 	
 	}
 	
@@ -152,23 +126,18 @@ public class Board{
                 if(piece.canMove(row, column)) {
                     
                 	//PERHAPS CHANGE TO NULL?? 
-                        // PK response : DOES NOT WORK! needs to be an integer?
-                        // May need to test this however
-                	    // change to meaningless value
+                        // PK response : Would not work, needs to be an integer?
                     occupiedPiece.setcolumn(11); // set to a meaningless value 
                     occupiedPiece.setrow(11); // set to a meaningless value
                     
                     
                     if(occupiedPiece.getColor().equals("white")) {
                         this.whiteCapturedPieces.add(occupiedPiece);
-                        this.capturedPieces.put("white", this.whiteCapturedPieces);
                     }
                     
-                    //HASHMAP REDUNDANT???
-                        // PK response: Keep for now for Pawn special move to bring back captured pieces
+
                     else if(occupiedPiece.getColor().equals("black")) {
                         this.blackCapturedPieces.add(occupiedPiece);
-                        this.capturedPieces.put("black", this.blackCapturedPieces);
                     }
                     
                     board[row][column] = board[piece.getrow()][piece.getcolumn()];

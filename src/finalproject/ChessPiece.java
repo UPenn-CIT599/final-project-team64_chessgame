@@ -103,13 +103,13 @@ public abstract class ChessPiece {
 	    if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
 	        
 	        // If its not possible to placePiece then make a sound or so
-            if(this.placePiece(piece, row, column)== false) {
+            if(this.getBoard().placePiece(piece, row, column)== false) {
                 return;
                 // make a sound or so
             }
             //NO NEED FOR ELSE STATEMENT HERE.. 
             // Otherwise just move piece
-            this.placePiece(piece, row, column);
+            this.getBoard().placePiece(piece, row, column);
             
 	    }
 	    else {

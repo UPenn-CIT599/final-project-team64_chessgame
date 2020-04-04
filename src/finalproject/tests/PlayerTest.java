@@ -9,11 +9,14 @@ import org.junit.jupiter.api.Nested;
 import finalproject.Board;
 import finalproject.Player;
 
+/** 
+ * This class is the test class for its counterpart class in the program
+ */
 public class PlayerTest {
 
     @Test
     /**
-     * This test method ensure Player on whiteTeam returns as whiteTeam.
+     * This test method ensures Player on whiteTeam returns as whiteTeam.
      */ 
     public void testIsWhiteTeam() {
         boolean whiteTeam = true;
@@ -22,7 +25,7 @@ public class PlayerTest {
 
     @Test
     /**
-     * This test method ensure Player on blackTeam returns as blackTeam.
+     * This test method ensures Player on blackTeam returns as blackTeam.
      */  
     public void testIsBlackTeam() {
         boolean blackTeam = true;
@@ -35,7 +38,7 @@ public class PlayerTest {
         
         @Test
         /**
-         * This test method ensure new Player_1 is shown on the whiteTeam  
+         * This test method ensures new Player_1 is shown on the whiteTeam  
          * when a new Player is created in the Player_1 inner class that extends Player.
          */  
         public void testWhiteTeam() {
@@ -52,7 +55,7 @@ public class PlayerTest {
         
         @Test
         /**
-         * This test method ensure new Player_2 is shown on the whiteTeam  
+         * This test method ensures new Player_2 is shown on the whiteTeam  
          * when a new Player is created in the Player_2 inner class that extends Player.
          */ 
         public void testBlackTeam() {

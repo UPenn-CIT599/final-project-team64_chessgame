@@ -3,13 +3,12 @@ package finalproject;
 /**
  * The King class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the kings of both teams.
- * 
- * @author Team 64 - JMG
  */
 public class King extends ChessPiece {
     
     /**
-     * This extends the super constructor for Queen
+     * This extends the super constructor for King
+     * @param board
      * @param color
      * @param type
      * @param row
@@ -22,7 +21,7 @@ public class King extends ChessPiece {
     }
     
     /**
-     * Note this needs to have parameters such as other piece etc maybe from GUI?
+     * This method checks whether a ChessPiece can conduct the Castling move or not
      * @return
      */
     public boolean isValidCastling() {

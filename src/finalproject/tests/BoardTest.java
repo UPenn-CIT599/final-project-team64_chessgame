@@ -9,6 +9,9 @@ import org.junit.runners.MethodSorters;
 
 import finalproject.Board;
 
+    /** 
+    * This class is the test class for its counterpart class in the program
+    */
     @FixMethodOrder(MethodSorters.NAME_ASCENDING)
     public class BoardTest{
     private static Board board;

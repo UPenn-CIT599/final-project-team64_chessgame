@@ -92,6 +92,33 @@ public abstract class ChessPiece {
     }
     
     /**
+	 * This method takes in the row and column values and checks whether we can move
+	 * If can move, updates piece position
+	 * @param piece
+	 * @return
+	 */
+	public void move(ChessPiece piece, int row, int column) {
+	    
+	    // check if valid row and column
+	    if((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
+	        
+	        // If its not possible to placePiece then make a sound or so
+            if(this.placePiece(piece, row, column)== false) {
+                return;
+                // make a sound or so
+            }
+            //NO NEED FOR ELSE STATEMENT HERE.. 
+            // Otherwise just move piece
+            this.placePiece(piece, row, column);
+            
+	    }
+	    else {
+	        // Print something or make sound
+	        return;
+	    }
+	}
+    
+    /**
      * This method checks whether we have a valid diagonal move or not
      * @param row
      * @param column

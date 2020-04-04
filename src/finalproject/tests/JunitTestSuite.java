@@ -13,7 +13,7 @@ import org.junit.runners.Suite.SuiteClasses;
     QueenTest.class, 
     RookTest.class})
 
-    /** The AllTests class remains empty, it is a SuiteClass,
+    /** This class remains empty, it is a SuiteClass,
     its annotations specify the classes to be run 
     when a class annotated with @RunWith(Suite.class) is run.*/
     public class JunitTestSuite {

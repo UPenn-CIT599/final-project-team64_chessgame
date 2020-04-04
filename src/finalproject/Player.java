@@ -25,8 +25,7 @@ public class Player {
     }
  
     /**
-     * The Player_1 class is an inner class and a sub class that extends the Player class.
-     * The two players are inner subclasses of this class.
+     * The Player_1 class is an inner class of and extends the Player class.
      */
     public class Player_1 extends Player {
 
@@ -39,7 +38,9 @@ public class Player {
             }
         }
     
-
+    /**
+     * The Player_2 class is an inner class of and extends the Player class.
+     */
     public class Player_2 extends Player {
 
         /**

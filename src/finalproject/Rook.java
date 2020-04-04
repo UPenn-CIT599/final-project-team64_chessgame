@@ -3,13 +3,12 @@ package finalproject;
 /**
  * The Rook class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the rooks of both teams.
- * 
- * @author Team 64 - JMG
  */
 public class Rook extends ChessPiece {
     
     /**
-     * This extends the super constructor for Queen
+     * This extends the super constructor for Rook
+     * @param board
      * @param color
      * @param type
      * @param row

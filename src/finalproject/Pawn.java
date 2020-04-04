@@ -3,13 +3,12 @@ package finalproject;
 /**
  * The Pawn class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the pawns of both teams.
- * 
- * @author Team 64 - JMG
  */
 public class Pawn extends ChessPiece {
     
     /**
      * This extends the super constructor for Queen
+     * @param board
      * @param color
      * @param type
      * @param row
@@ -60,7 +59,3 @@ public class Pawn extends ChessPiece {
     }
     
 }   
-
-
-
-

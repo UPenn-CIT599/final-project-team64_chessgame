@@ -47,4 +47,5 @@ Notes for April 06, 2020, Milestone deliverable.
         2.2.4. testPlacePiece()
 
     2.3. Player.class:
-        2.3.1. testPlayer()
+        2.3.1. testWhiteTeam()
+        2.3.2. testBlackTeam()

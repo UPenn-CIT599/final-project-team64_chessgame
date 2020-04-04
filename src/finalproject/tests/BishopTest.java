@@ -9,7 +9,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * @author JMG
  *
  */
 public class BishopTest {

@@ -4,8 +4,6 @@ package finalproject;
  * The ChessPiece class is an abstract superclass with subclasses:
  * King, Queen, Bishop, Knight, Rook, and Pawn.
  * The subclasses construct the game pieces for both teams in this program.
- * 
- * @author Team 64 - JMG
  */
 public abstract class ChessPiece {
     private Board board;
@@ -36,56 +34,56 @@ public abstract class ChessPiece {
     
     
     /**
-     * @return the color
+     * This is getter for the Color
      */
     public String getColor() {
         return color;
     }
     
     /**
-     * @param color the color to set
+     * This is setter for the Color
      */
     public void setColor(String color) {
         this.color = color;
     }
     
     /**
-     * @return the type
+     * This is getter for the Type
      */
     public String getType() {
         return type;
     }
     
     /**
-     * @param type the type to set
+     * This is setter for the Type
      */
     public void setType(String type) {
         this.type = type;
     }
     
     /**
-     * @return the row
+     * This is getter for the Row
      */
     public int getrow() {
         return row;
     }
 
     /**
-     * @param set the row
+     * This is setter for the Row
      */
     public void setrow(int i) {
         this.row = i;
     }
     
     /**
-     * @return the column
+     * This is getter for the column
      */
     public int getcolumn() {
         return this.column;
     }
     
     /**
-     * @param set the column
+     * This is setter for the column
      */
     public void setcolumn(int j) {
         this.column = j;

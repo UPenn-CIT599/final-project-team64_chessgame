@@ -3,13 +3,12 @@ package finalproject;
 /**
  * The Knight class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the knights of both teams.
- * 
- * @author Team 64 - JMG
  */
 public class Knight extends ChessPiece {
     
     /**
-     * This extends the super constructor for Queen
+     * This extends the super constructor for Knight
+     * @param board
      * @param color
      * @param type
      * @param row

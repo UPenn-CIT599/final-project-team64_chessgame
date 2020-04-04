@@ -7,6 +7,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/** 
+ * This class is the test class for its counterpart class in the program
+ */
 public class QueenTest {
 
     @BeforeClass

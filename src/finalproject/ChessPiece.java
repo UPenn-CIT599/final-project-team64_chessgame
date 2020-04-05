@@ -277,7 +277,6 @@ public abstract class ChessPiece {
         if(currentRow == 1) {
             
             if((row-currentRow == 1) & (Math.abs(column-currentColumn) == 0)) {
-      
                 return true;
             }
             else if((row-currentRow == 2) & (Math.abs(column-currentColumn) == 0)) {
@@ -287,22 +286,25 @@ public abstract class ChessPiece {
                 }
                 return true;
             }
-            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
+            // else if space is occupied 
+            else if(this.getBoard().isSpaceOccupied(row, column)) {
                 if((Math.abs(column - currentColumn)== 1) & (row-currentRow == 1)) {
                     return true;
                 }
+                return false;
             }
         }
         else {
             if((row-currentRow == 1) & (Math.abs(column-currentColumn) == 0)) {
-                
                 return true;
             }
-            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
-                
+            else if(this.getBoard().isSpaceOccupied(row, column)) {
+                if((Math.abs(column - currentColumn)== 1) & (row-currentRow == 1)) {
+                    return true;
+                }
+                return false;
             }
         }
-        
         return false;
     }
     
@@ -318,30 +320,37 @@ public abstract class ChessPiece {
         // First check if move is not resulting in king being check mate
         // If not check for valid move
         if(currentRow == 6) {
-            
             if((currentRow-row == 1) & (Math.abs(column-currentColumn) == 0)) { 
                 return true;
             }
             else if((currentRow -row == 2) & (Math.abs(column-currentColumn) == 0)) {
                 // if moving two steps: check that we are not jumping over pieces
-                if(this.getBoard().getPiece(1 + 6, currentColumn)!= null) {
+                if(this.getBoard().getPiece(6-1, currentColumn)!= null) {
                     return false;
                 }
                 return true;
             }
-            else if(this.getBoard().getPiece(row, column).getColor() != this.getColor()) {
-                if(((column - currentColumn)== 1) & (Math.abs(row-currentRow) == 1)) {
+            // else if space is occupied 
+            else if(this.getBoard().isSpaceOccupied(row, column)) {
+                if((Math.abs(column - currentColumn)== 1) & (currentRow -row== 1)) {
                     return true;
                 }
+                return false;
             }
         }
         else {
-            if((currentRow-row == 1) & (Math.abs(column-currentColumn) == 0)) {
+            if((currentRow -row == 1) & (Math.abs(column-currentColumn) == 0)) {
                 
                 return true;
             }
+            // else if space is occupied 
+            else if(this.getBoard().isSpaceOccupied(row, column)) {
+                if((Math.abs(column - currentColumn)== 1) & (currentRow -row == 1)) {
+                    return true;
+                }
+                return false;
+            }
         }
-        
         return false;
     }
     

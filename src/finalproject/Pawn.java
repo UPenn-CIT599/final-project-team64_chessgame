@@ -44,11 +44,10 @@ public class Pawn extends ChessPiece {
             
             // Check to see if special move
         }
-        
         else if(this.getColor().equals("black")) {
             // Otherwise check if move can be made
-            if(this.isValidBlackPawnMove( row, column, currentRow,  currentColumn)) {
-                return this.isValidBlackPawnMove( row, column, currentRow,  currentColumn);
+            if(this.isValidBlackPawnMove(row, column, currentRow,  currentColumn)) {
+                return this.isValidBlackPawnMove(row, column, currentRow,  currentColumn);
             }
             
             // Check to see if special Move

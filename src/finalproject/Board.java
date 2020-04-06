@@ -2,8 +2,13 @@ package finalproject;
 
 import java.util.*;
 
-//import java.awt.Color;
-
+/**
+* The Board class is a class that constructs a 8x8 ChessBoard 
+* using a double ChessPiece array. 
+* It has non-trivial methods including initialize(), isSpaceOccupied(), 
+* getPiece(), placePiece(), display()
+* 
+*/
 public class Board{
 	private ChessPiece[][] board;
 	private ArrayList<ChessPiece> whiteCapturedPieces;
@@ -16,21 +21,27 @@ public class Board{
 	 * It initializes the board to a zero board 
 	 */
 	public Board(){
-
-	  this.board = new ChessPiece[NUMROWS][NUMCOLS];
-	    
+	  this.board = new ChessPiece[NUMROWS][NUMCOLS];    
 	}
     
+	/**
+	 * This method returns the ArrayList of white
+	 * captured pieces
+	 * @return
+	 */
 	public ArrayList<ChessPiece> getWhiteCapturedPieces() {
         return whiteCapturedPieces;
     }
 
 
-
+    /**
+     * This method returns the ArrayList of black
+     * captured pieces
+     * @return
+     */
     public ArrayList<ChessPiece> getBlackCapturedPieces() {
         return blackCapturedPieces;
     }
-
 
 
     /**
@@ -167,10 +178,10 @@ public class Board{
 	    return false;
 	}
 	
-	/**
-	 * This method displays the board
-	 * Used String only for JUnit purposes.
-	 */
+    /**
+     * This method displays the board
+     * Used String only for JUnit purposes.
+     */
 	public String display() {
 		String result = "";
 	    for (int i = 0; i < board.length; i++)
@@ -195,6 +206,7 @@ public class Board{
 	/**
 	 * This method checks whether king would be check mate or not
 	 * Would take a Piece and see if it leads to check mate?
+	 * Note: need to write this
 	 */
 	public boolean checkKingCheckMate() {
 	    return false;

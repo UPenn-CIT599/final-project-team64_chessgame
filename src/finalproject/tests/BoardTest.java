@@ -27,6 +27,10 @@ import finalproject.Board;
     }
     
     @Test
+    /**
+     * This test method checks whether the display() 
+     * after initialization is accurate.
+     */ 
     public void testDisplay(){
         String expectedResult = 
                   "|wR|wK|wB|wQ|wK|wB|wK|wR|\n"
@@ -41,6 +45,11 @@ import finalproject.Board;
     }
     
     @Test
+    /**
+     * This test method ensures the placePiece() 
+     * method is working as expected. 
+     * Particularly, it tests whether all valid pawnMoves are working
+     */ 
     public void testPlacePiece() {
         
         // 1. test to see if basic valid white pawn moves works

@@ -19,7 +19,7 @@ public class gameDisplayLayout extends JPanel {
         setLayout(null);
 
         JTextArea txtrNotificationBar_1 = new JTextArea();
-        txtrNotificationBar_1.setBounds(308, 120, 244, 22);
+        txtrNotificationBar_1.setBounds(308, 118, 244, 22);
         add(txtrNotificationBar_1);
         txtrNotificationBar_1.setText("IT IS THE TURN OF ----- PLAYER");
 
@@ -41,7 +41,9 @@ public class gameDisplayLayout extends JPanel {
         board.setBounds(209, 153, 450, 450);
         add(board);
 
-        JButton tileButton_7_0 = new JButton("7-0");
+        JButton tileButton_7_0 = new JButton("♜");//"7-0");
+        tileButton_7_0.setBackground(Color.BLACK);
+        tileButton_7_0.setForeground(Color.BLACK);
         tileButton_7_0.setPreferredSize(new Dimension(50, 50));
         tileButton_7_0.setMinimumSize(new Dimension(50, 50));
         tileButton_7_0.setMaximumSize(new Dimension(50, 50));
@@ -53,43 +55,45 @@ public class gameDisplayLayout extends JPanel {
         });
         board.add(tileButton_7_0);
 
-        JButton tileButton_7_1 = new JButton("7-1");
+        JButton tileButton_7_1 = new JButton("\u265E");//"7-1");
+        tileButton_7_0.setBackground(Color.BLACK);
+        tileButton_7_0.setForeground(Color.BLACK);
         tileButton_7_1.setPreferredSize(new Dimension(50, 50));
         tileButton_7_1.setMinimumSize(new Dimension(50, 50));
         tileButton_7_1.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_1);
 
-        JButton tileButton_7_2 = new JButton("7-2");
+        JButton tileButton_7_2 = new JButton("\u265D");//"7-2");
         tileButton_7_2.setPreferredSize(new Dimension(50, 50));
         tileButton_7_2.setMinimumSize(new Dimension(50, 50));
         tileButton_7_2.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_2);
 
-        JButton tileButton_7_3 = new JButton("7-3");
+        JButton tileButton_7_3 = new JButton("\u265B");//"7-3");
         tileButton_7_3.setPreferredSize(new Dimension(50, 50));
         tileButton_7_3.setMinimumSize(new Dimension(50, 50));
         tileButton_7_3.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_3);
 
-        JButton tileButton_7_4 = new JButton("7-4");
+        JButton tileButton_7_4 = new JButton("\u265A");//"7-4");
         tileButton_7_4.setPreferredSize(new Dimension(50, 50));
         tileButton_7_4.setMinimumSize(new Dimension(50, 50));
         tileButton_7_4.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_4);
 
-        JButton tileButton_7_5 = new JButton("7-5");
+        JButton tileButton_7_5 = new JButton("\u265D");//"7-5");
         tileButton_7_5.setPreferredSize(new Dimension(50, 50));
         tileButton_7_5.setMinimumSize(new Dimension(50, 50));
         tileButton_7_5.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_5);
 
-        JButton tileButton_7_6 = new JButton("7-6");
+        JButton tileButton_7_6 = new JButton("\u265E");//"7-6");
         tileButton_7_6.setPreferredSize(new Dimension(50, 50));
         tileButton_7_6.setMinimumSize(new Dimension(50, 50));
         tileButton_7_6.setMaximumSize(new Dimension(50, 50));
         board.add(tileButton_7_6);
 
-        JButton tileButton_7_7 = new JButton("7-7");
+        JButton tileButton_7_7 = new JButton("\u265C");//"7-7");
         tileButton_7_7.setPreferredSize(new Dimension(50, 50));
         tileButton_7_7.setMinimumSize(new Dimension(50, 50));
         tileButton_7_7.setMaximumSize(new Dimension(50, 50));

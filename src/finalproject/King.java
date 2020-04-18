@@ -15,9 +15,9 @@ public class King extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public King(Board board, String color, String type, int row, int column) {
+	public King(Board board, boolean isWhite, int row, int column) {
 
-		super(board, color, type, row, column);
+		super(board, isWhite, row, column);
 
 	}
 
@@ -38,8 +38,8 @@ public class King extends ChessPiece {
 	@Override
 	public boolean canMove(int row, int column) {
 
-		int currentRow = this.getrow();
-		int currentColumn = this.getcolumn();
+		int currentRow = this.getRow();
+		int currentColumn = this.getColumn();
 
 		// First check if move is not resulting in king being check mate
 		// If not check for valid move
@@ -51,6 +51,11 @@ public class King extends ChessPiece {
 		}
 		return false;
 
+	}
+	
+	@Override
+	public String toString() {
+		return isWhite() ? "\u2654" : "\u265A";
 	}
 
 }

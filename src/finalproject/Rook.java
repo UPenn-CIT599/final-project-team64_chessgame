@@ -15,9 +15,9 @@ public class Rook extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Rook(Board board, String color, String type, int row, int column) {
+	public Rook(Board board, boolean isWhite, int row, int column) {
 
-		super(board, color, type, row, column);
+		super(board, isWhite, row, column);
 
 	}
 
@@ -29,8 +29,8 @@ public class Rook extends ChessPiece {
 	@Override
 	public boolean canMove(int row, int column) {
 
-		int currentRow = getrow();
-		int currentColumn = getcolumn();
+		int currentRow = getRow();
+		int currentColumn = getColumn();
 
 		// Otherwise check if move can be made
 
@@ -43,6 +43,11 @@ public class Rook extends ChessPiece {
 		}
 
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return isWhite() ? "\u2656" : "\u265C";
 	}
 
 }

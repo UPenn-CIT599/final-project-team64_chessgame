@@ -17,9 +17,9 @@ public class Queen extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Queen(Board board, String color, String type, int row, int column) {
+	public Queen(Board board, boolean isWhite, int row, int column) {
 
-		super(board, color, type, row, column);
+		super(board, isWhite, row, column);
 
 	}
 
@@ -31,8 +31,8 @@ public class Queen extends ChessPiece {
 	@Override
 	public boolean canMove(int row, int column) {
 
-		int currentRow = this.getrow();
-		int currentColumn = this.getcolumn();
+		int currentRow = this.getRow();
+		int currentColumn = this.getColumn();
 
 		// Otherwise check if valid move
 		
@@ -51,6 +51,11 @@ public class Queen extends ChessPiece {
 		// Otherwise move is not valid and return false
 		return false;
 
+	}
+	
+	@Override
+	public String toString() {
+		return isWhite() ? "\u2655" : "\u265B";
 	}
 
 }

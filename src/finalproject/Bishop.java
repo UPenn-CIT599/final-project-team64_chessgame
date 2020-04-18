@@ -15,9 +15,9 @@ public class Bishop extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Bishop(Board board, String color, String type, int row, int column) {
+	public Bishop(Board board, boolean isWhite, int row, int column) {
 
-		super(board, color, type, row, column);
+		super(board, isWhite, row, column);
 
 	}
 
@@ -30,7 +30,12 @@ public class Bishop extends ChessPiece {
 	public boolean canMove(int row, int column) {
 
 		// Otherwise check if valid diagonal move
-		return MovePieceChecker.isValidDiagonalMove(board, row, column, getrow(), getcolumn());
+		return MovePieceChecker.isValidDiagonalMove(board, row, column, getRow(), getColumn());
 
+	}
+	
+	@Override
+	public String toString() {
+		return isWhite() ? "\u2657" : "\u265D";
 	}
 }

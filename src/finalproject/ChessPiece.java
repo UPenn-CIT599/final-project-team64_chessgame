@@ -7,19 +7,18 @@ package finalproject;
  */
 public abstract class ChessPiece {
 	protected Board board;// protected so subclass can access
-	protected String color;
-	protected String type;
+	protected boolean isWhite;
+	
 	protected int row;
 	protected int column;
 
 	/**
 	 * This is the constructor for the ChessPiece
 	 */
-	public ChessPiece(Board board, String color, String type, int row, int column) {
+	public ChessPiece(Board board, boolean isWhite,  int row, int column) {
 
 		this.board = board;
-		this.color = color;
-		this.type = type;
+		this.isWhite = isWhite;
 		this.row = row;
 		this.column = column;
 
@@ -33,58 +32,45 @@ public abstract class ChessPiece {
 	}
 
 	/**
-	 * This is getter for the Color
+	 * Whether or not isWhite
 	 */
-	public String getColor() {
-		return color;
+	public boolean isWhite() {
+		return isWhite;
 	}
 
 	/**
 	 * This is setter for the Color
 	 */
-	public void setColor(String color) {
-		this.color = color;
+	public void setColor(boolean isWhite) {
+		this.isWhite = isWhite;
 	}
 
-	/**
-	 * This is getter for the Type
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * This is setter for the Type
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	/**
 	 * This is getter for the Row
 	 */
-	public int getrow() {
+	public int getRow() {
 		return row;
 	}
 
 	/**
 	 * This is setter for the Row
 	 */
-	public void setrow(int i) {
+	public void setRow(int i) {
 		this.row = i;
 	}
 
 	/**
 	 * This is getter for the column
 	 */
-	public int getcolumn() {
+	public int getColumn() {
 		return this.column;
 	}
 
 	/**
 	 * This is setter for the column
 	 */
-	public void setcolumn(int j) {
+	public void setColumn(int j) {
 		this.column = j;
 	}
 

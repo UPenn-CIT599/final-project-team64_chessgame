@@ -14,9 +14,9 @@ public class Pawn extends ChessPiece {
      * @param row
      * @param column
      */
-    public Pawn(Board board, String color, String type, int row, int column) {
+    public Pawn(Board board, boolean isWhite, int row, int column) {
        
-        super(board, color, type, row, column);
+        super(board, isWhite, row, column);
 
     }
     
@@ -32,11 +32,11 @@ public class Pawn extends ChessPiece {
     @Override
     public boolean canMove(int row, int column) {
         
-        int currentRow= this.getrow();
-        int currentColumn = this.getcolumn();
+        int currentRow= this.getRow();
+        int currentColumn = this.getColumn();
         
         
-        if(this.getColor().equals("white")) {
+        if(isWhite()) {
             // Otherwise check if move can be made
             if(this.isValidWhitePawnMove(row, column, currentRow,  currentColumn)) {
                 return this.isValidWhitePawnMove( row, column, currentRow,  currentColumn);
@@ -44,7 +44,7 @@ public class Pawn extends ChessPiece {
             
             // Check to see if special move
         }
-        else if(this.getColor().equals("black")) {
+        else {
             // Otherwise check if move can be made
             if(this.isValidBlackPawnMove(row, column, currentRow,  currentColumn)) {
                 return this.isValidBlackPawnMove(row, column, currentRow,  currentColumn);
@@ -146,6 +146,11 @@ public class Pawn extends ChessPiece {
             }
         }
         return false;
+    }
+     
+    @Override
+    public String toString() {
+    	return isWhite() ? "\u2659" : "\u265F";
     }
     
     

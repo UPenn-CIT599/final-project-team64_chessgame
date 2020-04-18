@@ -15,9 +15,9 @@ public class Knight extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Knight(Board board, String color, String type, int row, int column) {
+	public Knight(Board board, boolean isWhite, int row, int column) {
 
-		super(board, color, type, row, column);
+		super(board, isWhite, row, column);
 
 	}
 
@@ -31,8 +31,13 @@ public class Knight extends ChessPiece {
 
 		// First check if move is not resulting in king being check mate
 		// If not check for valid move
-		return Math.abs(row - getrow()) * Math.abs(column - getcolumn()) == 2;
+		return Math.abs(row - getRow()) * Math.abs(column - getColumn()) == 2;
 
+	}
+	
+	@Override
+	public String toString() {
+		return isWhite() ? "\u2658" : "\u265E";
 	}
 
 }

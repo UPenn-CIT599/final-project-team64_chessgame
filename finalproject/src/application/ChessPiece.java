@@ -1,4 +1,4 @@
-package finalproject.application;
+package application;
 
 /**
  * The ChessPiece class is an abstract superclass with subclasses: King, Queen,

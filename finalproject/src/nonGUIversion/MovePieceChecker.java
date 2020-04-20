@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 public class MovePieceChecker
 {
 

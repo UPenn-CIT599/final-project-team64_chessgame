@@ -2,12 +2,12 @@ package application;
 
 import java.util.*;
 
-import finalproject.gamePieces.Bishop;
-import finalproject.gamePieces.King;
-import finalproject.gamePieces.Knight;
-import finalproject.gamePieces.Pawn;
-import finalproject.gamePieces.Queen;
-import finalproject.gamePieces.Rook;
+import gamePieces.Bishop;
+import gamePieces.King;
+import gamePieces.Knight;
+import gamePieces.Pawn;
+import gamePieces.Queen;
+import gamePieces.Rook;
 
 /**
  * The Board class is a class that constructs a 8x8 ChessBoard using a double

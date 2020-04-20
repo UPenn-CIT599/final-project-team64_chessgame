@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 
 /**
  * The ChessPiece class is an abstract superclass with subclasses: King, Queen,

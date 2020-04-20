@@ -1,4 +1,4 @@
-package finalproject.tests;
+package tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

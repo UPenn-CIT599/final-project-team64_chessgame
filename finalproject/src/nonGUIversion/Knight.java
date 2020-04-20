@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 
 /**
  * The Knight class is a concrete class that extends abstract class ChessPiece.

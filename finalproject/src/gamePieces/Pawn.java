@@ -1,7 +1,7 @@
-package finalproject.gamePieces;
+package gamePieces;
 
-import finalproject.application.Board;
-import finalproject.application.ChessPiece;
+import application.Board;
+import application.ChessPiece;
 
 /**
  * The Pawn class is a concrete class that extends abstract class ChessPiece.

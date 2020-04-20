@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 
 /**
  * The Queen class is a concrete class that extends abstract class ChessPiece.

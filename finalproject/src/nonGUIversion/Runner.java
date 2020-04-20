@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 
 /**
  * The Runner class comprises of the method that launches the game.

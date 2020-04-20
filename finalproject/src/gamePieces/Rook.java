@@ -1,8 +1,8 @@
-package finalproject.gamePieces;
+package gamePieces;
 
-import finalproject.application.Board;
-import finalproject.application.ChessPiece;
-import finalproject.application.MovePieceChecker;
+import application.Board;
+import application.ChessPiece;
+import application.MovePieceChecker;
 
 /**
  * The Rook class is a concrete class that extends abstract class ChessPiece. It

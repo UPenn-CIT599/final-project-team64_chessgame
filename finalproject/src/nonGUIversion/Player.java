@@ -1,4 +1,4 @@
-package finalproject.nonGUIversion;
+package nonGUIversion;
 
 //import finalproject.Player;  IS THIS NECESSARY?
 

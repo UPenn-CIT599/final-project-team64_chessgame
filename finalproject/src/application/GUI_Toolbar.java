@@ -3,75 +3,49 @@ package application;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.BevelBorder;
-
+import javax.swing.border.*;
 
 @SuppressWarnings("serial")
 
 public class GUI_Toolbar extends JPanel implements ActionListener {
     private JButton newGUIGameButton;
-    private JButton newNonGUIGameButton;
+    private JButton newConsoleGameButton;
     private JButton quitGameButton;
-//    private JButton topButton;
-//    private JButton bottomButton;
-
-
     
-//    public Insets insets() {
-//        return null;
+//    public void setBorder(Border border) {
 //        
 //    }
-    
-//    public Insets(100, 50, 100, 50);
-//    int left,
-//            int bottom,
-//            int right)
 
-    
-    
     public GUI_Toolbar() {
-        setBounds(new Rectangle(600, 100, 100, 250));
-        insets();
-        setSize(new Dimension(100, 250));
-        
-//        topButton = new JButton("");
-//        topButton.setVisible(false);
-//        topButton.setSize(25, 25);
 
-        newGUIGameButton = new JButton("New GUI Game! ***is functional");
+        setBorder(new CompoundBorder(new EmptyBorder(150, 50, 150, 50), getBorder()));
+
+        newGUIGameButton = new JButton("New GUI Game!");
         newGUIGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         newGUIGameButton.setAlignmentY(Component.TOP_ALIGNMENT);
         newGUIGameButton.addActionListener(this);
-        newGUIGameButton.setSize(150, 100);
+        newGUIGameButton.setSize(150, 50);
 
-        newNonGUIGameButton = new JButton("New NON-GUI Game! ***not yet functional");
-        newNonGUIGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-        newNonGUIGameButton.addActionListener(this);
-        newNonGUIGameButton.setSize(150, 25);
+        newConsoleGameButton = new JButton("New Console Game!");
+        newConsoleGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
+        newConsoleGameButton.addActionListener(this);
+        newConsoleGameButton.setSize(150, 50);
         
         
-        quitGameButton = new JButton("Quit Game! ***is functional");
+        quitGameButton = new JButton("Quit Game!");
         quitGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         quitGameButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         quitGameButton.addActionListener(this);
-        quitGameButton.setSize(150, 100);
+        quitGameButton.setSize(150, 50);
 
-//        bottomButton = new JButton("");
-//        bottomButton.setVisible(false);
-//        bottomButton.setSize(25, 25);
+        setLayout(new BorderLayout(125, 125));
 
-//        setLayout(new GridLayout(3, 1, 200, 200));
-        setLayout(new BorderLayout(100, 100));
-
-//        add(topButton);
         add(newGUIGameButton, BorderLayout.NORTH);
-        add(newNonGUIGameButton, BorderLayout.CENTER);
+        add(newConsoleGameButton, BorderLayout.CENTER);
         add(quitGameButton, BorderLayout.SOUTH);
-//        add(bottomButton);
    }
 
-    public void setStringListener(finalproject.interfaces.GUI_Interface_StringListener listener) {
+    public void setStringListener(interfaces.GUI_Interface_StringListener listener) {
     }
 
     @Override
@@ -84,9 +58,9 @@ public class GUI_Toolbar extends JPanel implements ActionListener {
             new GUI_Main();
             }
         
-        else if(clicked == newNonGUIGameButton) {
+        else if(clicked == newConsoleGameButton) {
             Toolkit.getDefaultToolkit().beep();
-            new GUI_Main();
+            new finalproject.Runner();
             }
         
         else if(clicked == quitGameButton) {

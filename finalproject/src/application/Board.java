@@ -1,4 +1,4 @@
-package finalproject.application;
+package application;
 
 import java.util.*;
 

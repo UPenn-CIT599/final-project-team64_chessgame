@@ -1,4 +1,4 @@
-package finalproject.application;
+package application;
 public class MovePieceChecker
 {
 

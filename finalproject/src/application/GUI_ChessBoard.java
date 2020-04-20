@@ -72,7 +72,7 @@ public class GUI_ChessBoard extends JPanel {
         }
 
         private void setColor() {
-            setBackground(isWhiteSquare ? Color.WHITE : Color.YELLOW);
+            setBackground(isWhiteSquare ? Color.WHITE : Color.LIGHT_GRAY);
         }
 
         // square for which chess piece

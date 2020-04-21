@@ -18,27 +18,20 @@ public class GUI_Toolbar extends JPanel implements ActionListener {
 
     public GUI_Toolbar() {
 
-        setBorder(new CompoundBorder(new EmptyBorder(150, 50, 150, 50), getBorder()));
+        setBorder(new CompoundBorder(new EmptyBorder(200, 50, 200, 50), getBorder()));
 
         newGUIGameButton = new JButton("New GUI Game!");
-        newGUIGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         newGUIGameButton.setAlignmentY(Component.TOP_ALIGNMENT);
         newGUIGameButton.addActionListener(this);
-        newGUIGameButton.setSize(150, 50);
 
         newConsoleGameButton = new JButton("New Console Game!");
-        newConsoleGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         newConsoleGameButton.addActionListener(this);
-        newConsoleGameButton.setSize(150, 50);
-        
-        
+       
         quitGameButton = new JButton("Quit Game!");
-        quitGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         quitGameButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         quitGameButton.addActionListener(this);
-        quitGameButton.setSize(150, 50);
 
-        setLayout(new BorderLayout(125, 125));
+        setLayout(new BorderLayout());
 
         add(newGUIGameButton, BorderLayout.NORTH);
         add(newConsoleGameButton, BorderLayout.CENTER);

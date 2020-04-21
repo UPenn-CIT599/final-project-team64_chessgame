@@ -1,6 +1,8 @@
 package application;
 
 import javax.swing.JPanel;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,6 +18,7 @@ public class GUI_ChessBoard extends JPanel {
     private static ChessPiece selectedPiece;
 
     public GUI_ChessBoard() {
+        setBorder(new CompoundBorder(new EmptyBorder(0, 50, 50, 50), getBorder()));
         setAlignmentY(Component.BOTTOM_ALIGNMENT);
         setSize(new Dimension(500, 500));
         setMinimumSize(new Dimension(500, 500));

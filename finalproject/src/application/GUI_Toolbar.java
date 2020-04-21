@@ -60,7 +60,7 @@ public class GUI_Toolbar extends JPanel implements ActionListener {
         
         else if(clicked == newConsoleGameButton) {
             Toolkit.getDefaultToolkit().beep();
-            new finalproject.Runner();
+            new consoleVersion.Runner();
             }
         
         else if(clicked == quitGameButton) {

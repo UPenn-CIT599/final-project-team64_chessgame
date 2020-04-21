@@ -4,8 +4,6 @@ package tests;
     import org.junit.runner.Result;
     import org.junit.runner.notification.Failure;
 
-import finalproject.nonGUIversion.JunitTestSuite;
-
 
 /** 
  * This class launches the tests in the test suite

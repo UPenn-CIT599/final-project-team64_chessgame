@@ -1,10 +1,8 @@
 package tests;
 
-    import org.junit.runner.JUnitCore;
-    import org.junit.runner.Result;
-    import org.junit.runner.notification.Failure;
-
-import finalproject.Board;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 /** 
  * This class launches the tests in the test suite

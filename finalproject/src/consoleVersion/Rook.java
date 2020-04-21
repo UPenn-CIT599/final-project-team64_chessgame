@@ -1,4 +1,4 @@
-package nonGUIversion;
+package consoleVersion;
 
 /**
  * The Rook class is a concrete class that extends abstract class ChessPiece. It

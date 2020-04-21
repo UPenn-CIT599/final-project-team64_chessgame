@@ -2,46 +2,54 @@ package application;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 
 public class GUI_Header extends JPanel {
-    JPanel notificationPanel;
-    JTextArea textInNotificationBar;
+    static JTextArea textInNotificationBar;
 
     /*
      * Adds status (aka information) bar above chessBoard (aka north portion of GUI)  
      */
     public GUI_Header() {
-        //still need to add more functionality, player turn, instructions, etc.
-
-        notificationPanel = new JPanel();
-        notificationPanel.setAlignmentY(Component.TOP_ALIGNMENT);
-        notificationPanel.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-        notificationPanel.setBounds(new Rectangle(50, 50, 50, 50));
-        notificationPanel.setMinimumSize(new Dimension(250, 250));
-        notificationPanel.setMaximumSize(new Dimension(1000, 1000));
-        notificationPanel.setPreferredSize(new Dimension(500, 200));
+ 
+        setBorder(new CompoundBorder(new EmptyBorder(75, 25, 25, 50), getBorder()));//centered@ 50, 105, 50, 50
+        
         textInNotificationBar = new JTextArea();
+
+        textInNotificationBar.setBounds(1, 1, 500, 200);//centered@ 300, 1, 475, 200
+        textInNotificationBar.setForeground(Color.WHITE);
+        textInNotificationBar.setBackground(Color.BLUE);
+        textInNotificationBar.setFont(new Font("Arial", Font.BOLD, 22));
+
         textInNotificationBar.setWrapStyleWord(true);
-        textInNotificationBar.setBounds(43, 52, 714, 21);
-
-        setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        notificationPanel.setBackground(Color.WHITE);
-        notificationPanel.setBounds(200, 75, 600, 200);
-        notificationPanel.setLayout(null);
-
-        textInNotificationBar.setFont(new Font("Arial", Font.BOLD, 14));
-        textInNotificationBar.setLineWrap(false);
-        textInNotificationBar.setBackground(Color.WHITE);
-        textInNotificationBar.setText("NOTIFICATION BAR - TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST");
-
-        notificationPanel.add(textInNotificationBar);
-        add(notificationPanel);
-
-
+        textInNotificationBar.setLineWrap(true);
+        textInNotificationBar.setWrapStyleWord(true);
+        
+        textInNotificationBar.setAutoscrolls(false);
+        textInNotificationBar.setEditable(false);
+        
+        add(textInNotificationBar);
+        
+        //place holder for action event message handling in info / status bar
+        infoMsgBlackTeamTurn();        
+        infoMsgWhiteTeamTurn();
     }
 
+    public static void infoMsgWhiteTeamTurn() {
+//        textInNotificationBar.append("\n It is white team's turn! \n");
+        textInNotificationBar.setText("\n                      It is white team's turn! \n");
+
+        
+        //        textInNotificationBar.getComponentOrientation().isHorizontal();
+//        textInNotificationBar.setSelectedTextColor(Color.WHITE);
+    }
+    
+    public static void infoMsgBlackTeamTurn() {
+//        textInNotificationBar.append("\n It is black team's turn! \n");
+        textInNotificationBar.setText("\n                      It is black team's turn! \n");
+    }
+    
 }

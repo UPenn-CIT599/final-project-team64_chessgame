@@ -1,4 +1,4 @@
-package nonGUIversion;
+package consoleVersion;
 
 //import finalproject.Player;  IS THIS NECESSARY?
 

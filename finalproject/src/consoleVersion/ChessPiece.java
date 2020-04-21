@@ -1,4 +1,5 @@
-package nonGUIversion;
+package consoleVersion;
+
 
 /**
  * The ChessPiece class is an abstract superclass with subclasses: King, Queen,
@@ -109,7 +110,17 @@ public abstract class ChessPiece {
 	 * @param column
 	 * @return
 	 */
-	public abstract boolean canMove(int row, int column); 
+	public abstract boolean canMove(int row, int column);
+
+    public Object getType() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public Object getColor() {
+        // TODO Auto-generated method stub
+        return null;
+    } 
 		
 	
 

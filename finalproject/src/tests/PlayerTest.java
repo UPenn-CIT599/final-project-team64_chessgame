@@ -6,8 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.jupiter.api.Nested;
 
-import finalproject.Board;
-import finalproject.Player;
+import consoleVersion.Player;
 
 /** 
  * This class is the test class for its counterpart class in the program

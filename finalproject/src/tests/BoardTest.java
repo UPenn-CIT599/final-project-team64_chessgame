@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
-import finalproject.Board;
+import consoleVersion.Board;
 
     /** 
     * This class is the test class for its counterpart class in the program

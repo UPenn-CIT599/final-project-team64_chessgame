@@ -111,6 +111,7 @@ public class GUI_ChessBoard extends JPanel {
                             }
                         }
 
+                        GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
                         setBackground(Color.GREEN);
                         selectedPiece = piece;
                     }

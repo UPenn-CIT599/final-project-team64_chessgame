@@ -39,6 +39,8 @@ public class Board {
 	 */
 	public void switchPlayer() {
 		isCurrentPlayerWhite = !isCurrentPlayerWhite;//boolean into opposite value
+        GUI_Header.infoMsgBlackTeamTurn();//announces black team's turn in display area at top of gui        
+
 	}
 
 	/**

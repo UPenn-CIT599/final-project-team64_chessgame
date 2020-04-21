@@ -1,4 +1,5 @@
-package nonGUIversion;
+package consoleVersion;
+
 public class MovePieceChecker
 {
 

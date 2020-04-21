@@ -1,4 +1,4 @@
-package nonGUIversion;
+package consoleVersion;
 
 /**
  * The King class is a concrete class that extends abstract class ChessPiece. It

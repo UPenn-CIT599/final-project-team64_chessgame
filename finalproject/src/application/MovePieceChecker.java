@@ -92,7 +92,7 @@ public class MovePieceChecker {
         return false;
         
     }
-    
+     
     /**
      * This method checks whether we have a valid Vertical Move or not
      * @param row

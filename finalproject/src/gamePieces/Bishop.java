@@ -48,6 +48,6 @@ public class Bishop extends ChessPiece {
 	
 	@Override
 	public String toString() {
-		return isWhite() ? "\u2657" : "\u265D";
+		return isWhite() ? "\u2657" : "\u265D"; 
 	}
 }

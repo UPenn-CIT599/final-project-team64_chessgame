@@ -19,8 +19,8 @@ public class Board {
 	public static final int NUMROWS = 8;// making public for GUI
 	public static final int NUMCOLS = 8;// making public for GUI
 	private ChessPiece[][] board;
-	private ArrayList<ChessPiece> whiteCapturedPieces;
-	private ArrayList<ChessPiece> blackCapturedPieces;
+	private static ArrayList<ChessPiece> whiteCapturedPieces;
+	private static ArrayList<ChessPiece> blackCapturedPieces;
 	private boolean isCurrentPlayerWhite = true;
 	/**
 	 * This is the board constructor. It initializes the board to a zero board
@@ -48,7 +48,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public ArrayList<ChessPiece> getWhiteCapturedPieces() {
+	public static ArrayList<ChessPiece> getWhiteCapturedPieces() {
 		return whiteCapturedPieces;
 	}
 
@@ -57,7 +57,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public ArrayList<ChessPiece> getBlackCapturedPieces() {
+	public static ArrayList<ChessPiece> getBlackCapturedPieces() {
 		return blackCapturedPieces;
 	}
 
@@ -159,11 +159,14 @@ public class Board {
 					occupiedPiece.setRow(11); // set to a meaningless value
 
 					if (occupiedPiece.isWhite()) {
-						this.whiteCapturedPieces.add(occupiedPiece);
+						Board.whiteCapturedPieces.add(occupiedPiece);
+                        GUI_Jail.addWhiteTeamPrisoners();
 					}
 
 					else {
-						this.blackCapturedPieces.add(occupiedPiece);
+					    Board.blackCapturedPieces.add(occupiedPiece);
+				        GUI_Jail.addBlackTeamPrisoners();
+
 					}
 
 					board[row][column] = board[piece.getRow()][piece.getColumn()];

@@ -9,7 +9,7 @@ import javax.swing.border.*;
 
 public class GUI_Buttons extends JPanel implements ActionListener {
     private JButton newGUIGameButton;
-    private JButton newConsoleGameButton;
+//    private JButton newConsoleGameButton;
     private JButton quitGameButton;
     
     public GUI_Buttons() {
@@ -20,9 +20,9 @@ public class GUI_Buttons extends JPanel implements ActionListener {
         newGUIGameButton.addActionListener(this);
         newGUIGameButton.setFont(new Font("Arial", Font.BOLD, 22));
 
-        newConsoleGameButton = new JButton("New Console Game!");
-        newConsoleGameButton.addActionListener(this);
-        newConsoleGameButton.setFont(new Font("Arial", Font.BOLD, 22));
+//        newConsoleGameButton = new JButton("New Console Game!");
+//        newConsoleGameButton.addActionListener(this);
+//        newConsoleGameButton.setFont(new Font("Arial", Font.BOLD, 22));
        
         quitGameButton = new JButton("Quit Game!");
         quitGameButton.addActionListener(this);
@@ -31,7 +31,7 @@ public class GUI_Buttons extends JPanel implements ActionListener {
         setLayout(new BorderLayout());
 
         add(newGUIGameButton, BorderLayout.NORTH);
-        add(newConsoleGameButton, BorderLayout.CENTER);
+//        add(newConsoleGameButton, BorderLayout.CENTER);
         add(quitGameButton, BorderLayout.SOUTH);
         
    }
@@ -49,11 +49,11 @@ public class GUI_Buttons extends JPanel implements ActionListener {
             new GUI_Main();
             }
         
-        else if(clicked == newConsoleGameButton) {
-            Toolkit.getDefaultToolkit().beep();
-            GUI_Main.close_GUI(); 
-            new consoleVersion.Runner();
-            }
+//        else if(clicked == newConsoleGameButton) {
+//            Toolkit.getDefaultToolkit().beep();
+//            GUI_Main.close_GUI(); 
+//            new consoleVersion.Runner();
+//            }
         
         else if(clicked == quitGameButton) {
             Toolkit.getDefaultToolkit().beep();

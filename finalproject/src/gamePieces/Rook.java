@@ -36,7 +36,7 @@ public class Rook extends ChessPiece {
         if(this.getBoard().isSpaceOccupied(row, column)) {
             ChessPiece occupiedPiece = this.getBoard().getPiece(row, column);
             // If piece is occupied and color same as potential piece: return false
-            if ((occupiedPiece.isWhite() == this.isWhite())) {
+            if ((occupiedPiece.isWhite() == this.isWhite())) { 
                 return false;
             }
         }

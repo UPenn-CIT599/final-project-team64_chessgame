@@ -7,42 +7,33 @@ import javax.swing.border.*;
 
 @SuppressWarnings("serial")
 
-public class GUI_Toolbar extends JPanel implements ActionListener {
+public class GUI_Buttons extends JPanel implements ActionListener {
     private JButton newGUIGameButton;
     private JButton newConsoleGameButton;
     private JButton quitGameButton;
     
-//    public void setBorder(Border border) {
-//        
-//    }
+    public GUI_Buttons() {
 
-    public GUI_Toolbar() {
-
-        setBorder(new CompoundBorder(new EmptyBorder(150, 50, 150, 50), getBorder()));
+        setBorder(new CompoundBorder(new EmptyBorder(150, 25, 210, 25), getBorder()));
 
         newGUIGameButton = new JButton("New GUI Game!");
-        newGUIGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-        newGUIGameButton.setAlignmentY(Component.TOP_ALIGNMENT);
         newGUIGameButton.addActionListener(this);
-        newGUIGameButton.setSize(150, 50);
+        newGUIGameButton.setFont(new Font("Arial", Font.BOLD, 22));
 
         newConsoleGameButton = new JButton("New Console Game!");
-        newConsoleGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
         newConsoleGameButton.addActionListener(this);
-        newConsoleGameButton.setSize(150, 50);
-        
-        
+        newConsoleGameButton.setFont(new Font("Arial", Font.BOLD, 22));
+       
         quitGameButton = new JButton("Quit Game!");
-        quitGameButton.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLACK, null, null, null));
-        quitGameButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         quitGameButton.addActionListener(this);
-        quitGameButton.setSize(150, 50);
+        quitGameButton.setFont(new Font("Arial", Font.BOLD, 22));
 
-        setLayout(new BorderLayout(125, 125));
+        setLayout(new BorderLayout());
 
         add(newGUIGameButton, BorderLayout.NORTH);
         add(newConsoleGameButton, BorderLayout.CENTER);
         add(quitGameButton, BorderLayout.SOUTH);
+        
    }
 
     public void setStringListener(interfaces.GUI_Interface_StringListener listener) {

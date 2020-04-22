@@ -67,22 +67,23 @@ public class MovePieceChecker
      */
     public static boolean isValidHorizontalMove(Board board, int row, int column, int currentRow, int currentColumn) {
         
-        if(Math.abs(row-currentRow)== 0 && Math.abs(column-currentColumn) >= 0 ) {
+        //math.abs(x) >= 0 for all x
+    	if(row == currentRow) {
             // First check if move is not resulting in king being check mate 
             // If not return true
             
 
             // Check to see if Piece is jumping over any piece
-            if(row > currentRow) {
-                for(int j = currentColumn; j <= column ; j++) {
+            if(column > currentColumn) {//changed to columns
+                for(int j = currentColumn + 1; j <= column ; j++) {//currentColumn + 1 bc currentCol never null
                     if(board.getPiece(currentRow, j) != null) {
                         return false;
                     }
                 }
                 return true;
             }
-            else if(currentRow > row) {
-                for(int j = currentRow; j >= row; j--) {
+            else if(currentColumn > column) {//changed to columns again... Horizontal move always same row
+                for(int j = column; j <= currentColumn - 1; j++) {//j++ bc column is smaller in this case
                     if(board.getPiece(currentRow, j) != null) {
                         return false;
                     }
@@ -107,10 +108,11 @@ public class MovePieceChecker
         // If not check for valid move
         
         // if valid move
-        if(Math.abs(row-currentRow)>= 0 && Math.abs(column-currentColumn) == 0 ) {
+    	//math.abs(x) >= 0 for all x & math.abs(coloumn-currentColumn) == 0 is just column = currentColumn
+        if(column == currentColumn) {
          // Check to see if Piece is jumping over any piece
             if(row > currentRow) {
-                for(int i = currentRow; i <= row ; i++) {
+                for(int i = currentRow + 1; i <= row ; i++) {//currentRow + 1 bc currentRow never null
                     if(board.getPiece(i, currentColumn) != null) {
                         return false;
                     }

@@ -84,6 +84,11 @@ public abstract class ChessPiece {
 		this.column = j;
 	}
 
+    public Object getColor() {
+        // TODO Auto-generated method stub
+        return null;
+    } 
+    
 	/**
 	 * This method takes in the row and column values and checks whether we can move
 	 * If can move, updates piece position
@@ -117,8 +122,8 @@ public abstract class ChessPiece {
 	 * @param column
 	 * @return
 	 */
-	public abstract boolean canMove(int row, int column); 
-		
+	public abstract boolean canMove(int row, int column);
+
 	
 
 }

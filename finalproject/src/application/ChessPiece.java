@@ -81,19 +81,19 @@ public abstract class ChessPiece {
 	 * @param piece
 	 * @return
 	 */
-	public void move(ChessPiece piece, int row, int column) {
+	public void move(int row, int column) {
 
 		// check if valid row and column
 		if ((row < 8 & row >= 0) & (column < 8 & column >= 0)) {
 
 			// If its not possible to placePiece then make a sound or so
-			if (this.getBoard().placePiece(piece, row, column) == false) {
+			if (this.getBoard().placePiece(this, row, column) == false) {
 				return;
-				// make a sound or so
+				// make a sound or something
 			}
 			// NO NEED FOR ELSE STATEMENT HERE..
 			// Otherwise just move piece
-			this.getBoard().placePiece(piece, row, column);
+			this.getBoard().placePiece(this, row, column);
 
 		} else {
 			// Print something or make sound
@@ -120,6 +120,14 @@ public abstract class ChessPiece {
         // TODO Auto-generated method stub
         return null;
     } 
+    
+    /**
+     * Helper method for testing in console
+     * @return
+     */
+    public String info() {
+    	return getClass().getSimpleName() + "(" + row + ", " + column + ")";
+    }
 		
 	
 

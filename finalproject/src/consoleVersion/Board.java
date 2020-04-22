@@ -2,15 +2,22 @@ package consoleVersion;
 
 import java.util.*;
 
+import consoleVersion.Bishop;
+import consoleVersion.ChessPiece;
+import consoleVersion.King;
+import consoleVersion.Knight;
+import consoleVersion.Pawn;
+import consoleVersion.Queen;
+import consoleVersion.Rook;
+
 /**
  * The Board class is a class that constructs a 8x8 ChessBoard using a double
  * ChessPiece array. It has non-trivial methods including initialize(),
  * isSpaceOccupied(), getPiece(), placePiece(), display()
- * 
  */
 public class Board {
-	public static final int NUMROWS = 8;// making public for GUI
-	public static final int NUMCOLS = 8;// making public for GUI
+	public static final int NUMROWS = 8; // making public for GUI
+	public static final int NUMCOLS = 8; // making public for GUI
 	private ChessPiece[][] board;
 	private ArrayList<ChessPiece> whiteCapturedPieces;
 	private ArrayList<ChessPiece> blackCapturedPieces;
@@ -56,46 +63,47 @@ public class Board {
 	 * This method is used to initialize the board
 	 */
 	public void initialize() {
+	    
+	    int pawnRow;
+        int nonPawnRow;
+        
+        pawnRow = 1;
+        nonPawnRow = 0; 
+        board[nonPawnRow][3] = new Queen(this, true, "Queen", nonPawnRow, 3);
+        board[nonPawnRow][4] = new King(this, true, "King", nonPawnRow, 4);
+         
+        for(int i = 0; i < NUMCOLS; i++){
+            board[pawnRow][i] = new Pawn(this,true, "Pawn", pawnRow, i);
+        }
+         
+        board[nonPawnRow][0] = new Rook(this, true, "Rook", nonPawnRow, 0);
+        board[nonPawnRow][7] = new Rook(this, true, "Rook", nonPawnRow, 7);
+        board[nonPawnRow][1] = new Knight(this, true, "Knight", nonPawnRow, 1);
+        board[nonPawnRow][6] = new Knight(this, true, "Knight", nonPawnRow, 6);
+        board[nonPawnRow][2] = new Bishop(this, true, "Bishop", nonPawnRow, 2);
+        board[nonPawnRow][5] = new Bishop(this, true, "Bishop", nonPawnRow, 5);
+        
+        pawnRow = NUMROWS - 2;
+        nonPawnRow = NUMROWS - 1;
+        
+        board[nonPawnRow][4] = new Queen(this, false, "Queen", nonPawnRow, 4);
+        board[nonPawnRow][3] = new King(this, false, "King", nonPawnRow, 3);
+        
+        for(int i = 0; i < NUMCOLS; i++){
+            board[pawnRow][i] = new Pawn(this, false, "Pawn", pawnRow, i);
+        }
+        
+        board[nonPawnRow][0] = new Rook(this,false, "Rook", nonPawnRow, 0);
+        board[nonPawnRow][7] = new Rook(this, false, "Rook", nonPawnRow, 7);
+        board[nonPawnRow][1] = new Knight(this,false, "Knight", nonPawnRow, 1);
+        board[nonPawnRow][6] = new Knight(this,false, "Knight", nonPawnRow, 6);
+        board[nonPawnRow][2] = new Bishop(this, false, "Bishop", nonPawnRow, 2);
+        board[nonPawnRow][5] = new Bishop(this, false, "Bishop", nonPawnRow, 5);
+        
+        // initialize ArrayLists to keep track of captured pieces 
+        whiteCapturedPieces = new ArrayList<ChessPiece>();
+        blackCapturedPieces = new ArrayList<ChessPiece>();
 
-		int pawnRow;
-		int nonPawnRow;
-
-		pawnRow = 1;
-		nonPawnRow = 0;
-		board[nonPawnRow][3] = new Queen(this, true, nonPawnRow, 3);
-		board[nonPawnRow][4] = new King(this, true, nonPawnRow, 4);
-
-		for (int i = 0; i < NUMCOLS; i++) {
-			board[pawnRow][i] = new Pawn(this, true, pawnRow, i);
-		}
-
-		board[nonPawnRow][0] = new Rook(this, true, nonPawnRow, 0);
-		board[nonPawnRow][7] = new Rook(this, true, nonPawnRow, 7);
-		board[nonPawnRow][1] = new Knight(this, true, nonPawnRow, 1);
-		board[nonPawnRow][6] = new Knight(this, true, nonPawnRow, 6);
-		board[nonPawnRow][2] = new Bishop(this, true, nonPawnRow, 2);
-		board[nonPawnRow][5] = new Bishop(this, true, nonPawnRow, 5);
-
-		pawnRow = NUMROWS - 2;
-		nonPawnRow = NUMROWS - 1;
-
-		board[nonPawnRow][4] = new Queen(this, false, nonPawnRow, 4);
-		board[nonPawnRow][3] = new King(this, false, nonPawnRow, 3);
-
-		for (int i = 0; i < NUMCOLS; i++) {
-			board[pawnRow][i] = new Pawn(this, false, pawnRow, i);
-		}
-
-		board[nonPawnRow][0] = new Rook(this, false, nonPawnRow, 0);
-		board[nonPawnRow][7] = new Rook(this, false, nonPawnRow, 7);
-		board[nonPawnRow][1] = new Knight(this, false, nonPawnRow, 1);
-		board[nonPawnRow][6] = new Knight(this, false, nonPawnRow, 6);
-		board[nonPawnRow][2] = new Bishop(this, false, nonPawnRow, 2);
-		board[nonPawnRow][5] = new Bishop(this, false, nonPawnRow, 5);
-
-		// initialize ArrayLists to keep track of captured pieces
-		whiteCapturedPieces = new ArrayList<ChessPiece>();
-		blackCapturedPieces = new ArrayList<ChessPiece>();
 
 	}
 
@@ -122,9 +130,7 @@ public class Board {
 	}
 
 	/**
-	 * This method allows one to place a Piece at a particular location Note: May
-	 * not be needed
-	 * 
+	 * This method allows one to place a Piece at a particular location 
 	 * @param piece
 	 * @param row
 	 * @param column
@@ -144,14 +150,12 @@ public class Board {
 				// If valid move: update position and remove occupiedPiece
 				if (piece.canMove(row, column)) {
 
-					// PERHAPS CHANGE TO NULL?? : Explore later
 					occupiedPiece.setColumn(11); // set to a meaningless value
 					occupiedPiece.setRow(11); // set to a meaningless value
 
 					if (occupiedPiece.isWhite()) {
 						this.whiteCapturedPieces.add(occupiedPiece);
 					}
-
 					else {
 						this.blackCapturedPieces.add(occupiedPiece);
 					}

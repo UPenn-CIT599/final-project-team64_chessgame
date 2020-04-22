@@ -15,9 +15,9 @@ public class Rook extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Rook(Board board, boolean isWhite, int row, int column) {
+	public Rook(Board board, boolean isWhite, String type, int row, int column) {
 
-		super(board, isWhite, row, column);
+		super(board, isWhite, type, row, column);
 
 	}
 

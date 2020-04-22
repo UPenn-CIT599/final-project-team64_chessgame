@@ -9,22 +9,31 @@ package consoleVersion;
 public abstract class ChessPiece {
 	protected Board board;// protected so subclass can access
 	protected boolean isWhite;
-	
+	protected String type;
 	protected int row;
 	protected int column;
 
 	/**
 	 * This is the constructor for the ChessPiece
 	 */
-	public ChessPiece(Board board, boolean isWhite,  int row, int column) {
+	public ChessPiece(Board board, boolean isWhite, String type, int row, int column) {
 
 		this.board = board;
 		this.isWhite = isWhite;
+		this.type = type;
 		this.row = row;
 		this.column = column;
 
 	}
 
+	/**
+	 * This is getter for type
+	 */
+	public String getType() {
+	    return type;
+	}
+	
+	
 	/**
 	 * This is getter for the Board
 	 */
@@ -90,9 +99,7 @@ public abstract class ChessPiece {
 			// If its not possible to placePiece then make a sound or so
 			if (this.getBoard().placePiece(piece, row, column) == false) {
 				return;
-				// make a sound or so
 			}
-			// NO NEED FOR ELSE STATEMENT HERE..
 			// Otherwise just move piece
 			this.getBoard().placePiece(piece, row, column);
 

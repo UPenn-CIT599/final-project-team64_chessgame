@@ -17,9 +17,9 @@ public class Queen extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public Queen(Board board, boolean isWhite, int row, int column) {
+	public Queen(Board board, boolean isWhite, String type, int row, int column) {
 
-		super(board, isWhite, row, column);
+		super(board, isWhite, type, row, column);
 
 	}
 

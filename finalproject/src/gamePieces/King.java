@@ -48,7 +48,8 @@ public class King extends ChessPiece {
 		// If not check for valid move
 		if ((Math.abs(row - currentRow) + Math.abs(column - currentColumn)) == 1) {
 			return true;
-		} else if (((Math.abs(row - currentRow)) == Math.abs(column - currentColumn))
+		} 
+		else if (((Math.abs(row - currentRow)) == Math.abs(column - currentColumn))
 				& (Math.abs(column - currentColumn) == 1)) {
 			return true;
 		}

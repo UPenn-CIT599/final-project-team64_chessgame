@@ -15,9 +15,9 @@ public class King extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public King(Board board, boolean isWhite, int row, int column) {
+	public King(Board board, boolean isWhite, String type, int row, int column) {
 
-		super(board, isWhite, row, column);
+		super(board, isWhite, type, row, column);
 
 	}
 

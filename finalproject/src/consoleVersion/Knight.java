@@ -1,5 +1,6 @@
 package consoleVersion;
 
+
 /**
  * The Knight class is a concrete class that extends abstract class ChessPiece.
  * It constructs and sets initial positions for the knights of both teams.
@@ -10,17 +11,17 @@ public class Knight extends ChessPiece {
 	 * This extends the super constructor for Knight
 	 * 
 	 * @param board
-	 * @param color
+	 * @param isWhite
 	 * @param type
 	 * @param row
 	 * @param column
 	 */
-	public Knight(Board board, boolean isWhite, int row, int column) {
+    public Knight(Board board, boolean isWhite, String type, int row, int column) {
 
-		super(board, isWhite, row, column);
+        super(board, isWhite, type, row, column);
 
-	}
-
+    }
+    
 	/**
 	 * This method checks whether a ChessPiece can move or not
 	 * 

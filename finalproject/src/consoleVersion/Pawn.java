@@ -35,6 +35,13 @@ public class Pawn extends ChessPiece {
         int currentRow= this.getRow();
         int currentColumn = this.getColumn();
         
+        if(this.getBoard().isSpaceOccupied(row, column)) {
+            ChessPiece occupiedPiece = this.getBoard().getPiece(row, column);
+            // If piece is occupied and color same as potential piece: return false
+            if ((occupiedPiece.isWhite() == this.isWhite())) {
+                return false;
+            }
+        }
         
         if(isWhite()) {
             // Otherwise check if move can be made

@@ -35,6 +35,14 @@ public class Pawn extends ChessPiece {
     @Override
     public boolean canMove(int row, int column) {
         
+        if(this.getBoard().isSpaceOccupied(row, column)) {
+            ChessPiece occupiedPiece = this.getBoard().getPiece(row, column);
+            // If piece is occupied and color same as potential piece: return false
+            if ((occupiedPiece.isWhite() == this.isWhite())) {
+                return false;
+            }
+        }
+        
         int currentRow= this.getRow();
         int currentColumn = this.getColumn();
         

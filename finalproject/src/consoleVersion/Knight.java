@@ -29,6 +29,14 @@ public class Knight extends ChessPiece {
 	 */
 	@Override
 	public boolean canMove(int row, int column) {
+	    
+        if(this.getBoard().isSpaceOccupied(row, column)) {
+            ChessPiece occupiedPiece = this.getBoard().getPiece(row, column);
+            // If piece is occupied and color same as potential piece: return false
+            if ((occupiedPiece.isWhite() == this.isWhite())) {
+                return false;
+            }
+        }
 
 		// First check if move is not resulting in king being check mate
 		// If not check for valid move

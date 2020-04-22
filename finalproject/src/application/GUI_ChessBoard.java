@@ -114,6 +114,7 @@ public class GUI_ChessBoard extends JPanel {
 							if (piece.canMove(square.row, square.column)) {
 								System.out.println(piece.getClass().getName());
 								square.setBackground(Color.CYAN);
+								square.setOpaque(true);
 							} else {
 								square.setColor();
 							}
@@ -131,6 +132,7 @@ public class GUI_ChessBoard extends JPanel {
 
 							if (piece.canMove(square.row, square.column)) {
 								square.setBackground(Color.CYAN);
+								square.setOpaque(true);
 							} else {
 								square.setColor();
 							}

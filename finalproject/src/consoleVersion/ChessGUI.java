@@ -114,6 +114,7 @@ public class ChessGUI {
 
 							if (piece.canMove(square.row, square.column)) {
 								square.setBackground(Color.CYAN);
+								square.setOpaque(true);
 							} else {
 								square.setColor();
 							}

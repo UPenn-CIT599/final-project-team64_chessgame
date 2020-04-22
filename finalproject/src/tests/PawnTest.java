@@ -55,7 +55,6 @@ class PawnTest {
                 // Check that there is no longer a white pawn in the previous location
             assertEquals(board.isSpaceOccupied(2, 0), false);
       
-       
     }
     
     /**
@@ -114,69 +113,69 @@ class PawnTest {
     }
     
  
-/*
-
-// 4. test to see if invalid black pawn moves do not work
-   // 4.1 diagonal move when not occupied by piece of opponent (when in pawn row) should not work
-board.placePiece(board.getPiece(6,3), 5,4); // try moving piece diagonally when not other piece of opponent
-assertEquals(board.getPiece(6, 3).getType(), "Pawn");
-assertEquals(board.getPiece(6, 3).getColor(), "black");
-assertEquals(board.isSpaceOccupied(5, 4), false); // place trying to move to is empty
-  // 4.2 diagonal move when not occupied by piece of opponent (when in non pawn row) should not work
-board.placePiece(board.getPiece(4, 1), 3, 2); // try moving piece diagonally when not other piece of opponent
-assertEquals(board.getPiece(4,1).getType(), "Pawn");
-assertEquals(board.getPiece(4,1).getColor(), "black");
-assertEquals(board.isSpaceOccupied(3,2), false); // place trying to move to is empty
-  // 4.3 move by two when not in non pawn row should not work
-board.placePiece(board.getPiece(4,6), 2, 6); // try moving by two when not in non pawn row
-assertEquals(board.getPiece(4, 6).getType(), "Pawn");
-assertEquals(board.getPiece(4,6).getColor(), "black");
-assertEquals(board.isSpaceOccupied(2, 6), false); // place trying to move to is empty
-
-// 5. test out diagonal moves for both black and white pawns when not in non-pawn row
-  // 5.1 test if white pawn can capture black pawn by moving diagonally
-board.placePiece(board.getPiece(3,7), 4, 6);
-assertEquals(board.getPiece(4, 6).getType(), "Pawn"); // test to see if black pawn has been captured
-assertEquals(board.getPiece(4,6).getColor(), "white");
-assertEquals(board.isSpaceOccupied(3, 7), false); // see that previous location of white pawn is empty
-assertEquals(board.getBlackCapturedPieces().get(0).getColor(), "black");
-assertEquals(board.getBlackCapturedPieces().get(0).getType(), "Pawn");
-  // 5.2 test if black pawn can capture white pawn by moving diagonally
-board.placePiece(board.getPiece(4,1), 3, 0);
-assertEquals(board.getPiece(3,0).getType(), "Pawn"); // test to see if black pawn has been captured
-assertEquals(board.getPiece(3,0).getColor(), "black");
-assertEquals(board.isSpaceOccupied(4,1), false); // see that previous location of white pawn is empty
-assertEquals(board.getWhiteCapturedPieces().get(0).getColor(), "white");
-assertEquals(board.getWhiteCapturedPieces().get(0).getType(), "Pawn");
-
-// 6. test out diagonal moves for both black and white pawns when not in pawn row
-  // 6.1 test black pawn can capture white pawn
-      // first move white pawn to end of the board
-board.placePiece(board.getPiece(1,2), 3,2);
-board.placePiece(board.getPiece(3,2), 4,2);
-board.placePiece(board.getPiece(4,2), 5,2);
-      // then see whether black pawn in pawn row can capture white pawn
-board.placePiece(board.getPiece(6,3), 5,2);
-assertEquals(board.getPiece(5,2).getColor(),"black");
-assertEquals(board.getPiece(5,2).getType(),"Pawn");
-assertEquals(board.isSpaceOccupied(6,3), false); // place trying to move from is empty
-assertEquals(board.getWhiteCapturedPieces().get(1).getColor(), "white"); // ensure added to array of captured pieces
-assertEquals(board.getWhiteCapturedPieces().get(1).getType(), "Pawn");
-  // 6.2 test white pawn can capture black pawn
-      // first move white pawn to end of the board
-board.placePiece(board.getPiece(6,4), 5,4);
-board.placePiece(board.getPiece(5,4), 4,4);
-board.placePiece(board.getPiece(4,4), 3,4);
-board.placePiece(board.getPiece(3,4), 2,4);
-      // then see whether black pawn in pawn row can capture white pawn
-board.placePiece(board.getPiece(1,3), 2,4);
-assertEquals(board.getPiece(2,4).getColor(),"white");
-assertEquals(board.getPiece(2,4).getType(),"Pawn");
-assertEquals(board.isSpaceOccupied(1,3), false); // place trying to move from is empty
-assertEquals(board.getBlackCapturedPieces().get(1).getColor(), "black"); // ensure added to array of captured pieces
-assertEquals(board.getBlackCapturedPieces().get(1).getType(), "Pawn");
-
-*/
+            /*
+            
+            // 4. test to see if invalid black pawn moves do not work
+               // 4.1 diagonal move when not occupied by piece of opponent (when in pawn row) should not work
+            board.placePiece(board.getPiece(6,3), 5,4); // try moving piece diagonally when not other piece of opponent
+            assertEquals(board.getPiece(6, 3).getType(), "Pawn");
+            assertEquals(board.getPiece(6, 3).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(5, 4), false); // place trying to move to is empty
+              // 4.2 diagonal move when not occupied by piece of opponent (when in non pawn row) should not work
+            board.placePiece(board.getPiece(4, 1), 3, 2); // try moving piece diagonally when not other piece of opponent
+            assertEquals(board.getPiece(4,1).getType(), "Pawn");
+            assertEquals(board.getPiece(4,1).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(3,2), false); // place trying to move to is empty
+              // 4.3 move by two when not in non pawn row should not work
+            board.placePiece(board.getPiece(4,6), 2, 6); // try moving by two when not in non pawn row
+            assertEquals(board.getPiece(4, 6).getType(), "Pawn");
+            assertEquals(board.getPiece(4,6).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(2, 6), false); // place trying to move to is empty
+            
+            // 5. test out diagonal moves for both black and white pawns when not in non-pawn row
+              // 5.1 test if white pawn can capture black pawn by moving diagonally
+            board.placePiece(board.getPiece(3,7), 4, 6);
+            assertEquals(board.getPiece(4, 6).getType(), "Pawn"); // test to see if black pawn has been captured
+            assertEquals(board.getPiece(4,6).getColor(), "white");
+            assertEquals(board.isSpaceOccupied(3, 7), false); // see that previous location of white pawn is empty
+            assertEquals(board.getBlackCapturedPieces().get(0).getColor(), "black");
+            assertEquals(board.getBlackCapturedPieces().get(0).getType(), "Pawn");
+              // 5.2 test if black pawn can capture white pawn by moving diagonally
+            board.placePiece(board.getPiece(4,1), 3, 0);
+            assertEquals(board.getPiece(3,0).getType(), "Pawn"); // test to see if black pawn has been captured
+            assertEquals(board.getPiece(3,0).getColor(), "black");
+            assertEquals(board.isSpaceOccupied(4,1), false); // see that previous location of white pawn is empty
+            assertEquals(board.getWhiteCapturedPieces().get(0).getColor(), "white");
+            assertEquals(board.getWhiteCapturedPieces().get(0).getType(), "Pawn");
+            
+            // 6. test out diagonal moves for both black and white pawns when not in pawn row
+              // 6.1 test black pawn can capture white pawn
+                  // first move white pawn to end of the board
+            board.placePiece(board.getPiece(1,2), 3,2);
+            board.placePiece(board.getPiece(3,2), 4,2);
+            board.placePiece(board.getPiece(4,2), 5,2);
+                  // then see whether black pawn in pawn row can capture white pawn
+            board.placePiece(board.getPiece(6,3), 5,2);
+            assertEquals(board.getPiece(5,2).getColor(),"black");
+            assertEquals(board.getPiece(5,2).getType(),"Pawn");
+            assertEquals(board.isSpaceOccupied(6,3), false); // place trying to move from is empty
+            assertEquals(board.getWhiteCapturedPieces().get(1).getColor(), "white"); // ensure added to array of captured pieces
+            assertEquals(board.getWhiteCapturedPieces().get(1).getType(), "Pawn");
+              // 6.2 test white pawn can capture black pawn
+                  // first move white pawn to end of the board
+            board.placePiece(board.getPiece(6,4), 5,4);
+            board.placePiece(board.getPiece(5,4), 4,4);
+            board.placePiece(board.getPiece(4,4), 3,4);
+            board.placePiece(board.getPiece(3,4), 2,4);
+                  // then see whether black pawn in pawn row can capture white pawn
+            board.placePiece(board.getPiece(1,3), 2,4);
+            assertEquals(board.getPiece(2,4).getColor(),"white");
+            assertEquals(board.getPiece(2,4).getType(),"Pawn");
+            assertEquals(board.isSpaceOccupied(1,3), false); // place trying to move from is empty
+            assertEquals(board.getBlackCapturedPieces().get(1).getColor(), "black"); // ensure added to array of captured pieces
+            assertEquals(board.getBlackCapturedPieces().get(1).getType(), "Pawn");
+            
+            */
      
 
 }

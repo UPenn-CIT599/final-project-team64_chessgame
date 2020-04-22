@@ -51,6 +51,7 @@ public class GUI_Buttons extends JPanel implements ActionListener {
         
         else if(clicked == newConsoleGameButton) {
             Toolkit.getDefaultToolkit().beep();
+            GUI_Main.close_GUI(); 
             new consoleVersion.Runner();
             }
         

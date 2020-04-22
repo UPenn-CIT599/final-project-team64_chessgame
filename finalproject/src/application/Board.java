@@ -71,6 +71,7 @@ public class Board {
 
 		pawnRow = 1;
 		nonPawnRow = 0;
+		
 		board[nonPawnRow][3] = new Queen(this, true, nonPawnRow, 3);
 		board[nonPawnRow][4] = new King(this, true, nonPawnRow, 4);
 
@@ -88,8 +89,8 @@ public class Board {
 		pawnRow = NUMROWS - 2;
 		nonPawnRow = NUMROWS - 1;
 
-		board[nonPawnRow][4] = new Queen(this, false, nonPawnRow, 4);
-		board[nonPawnRow][3] = new King(this, false, nonPawnRow, 3);
+		board[nonPawnRow][3] = new Queen(this, false, nonPawnRow, 3);
+		board[nonPawnRow][4] = new King(this, false, nonPawnRow, 4);
 
 		for (int i = 0; i < NUMCOLS; i++) {
 			board[pawnRow][i] = new Pawn(this, false, pawnRow, i);

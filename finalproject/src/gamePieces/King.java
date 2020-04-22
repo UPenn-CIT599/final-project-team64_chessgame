@@ -67,7 +67,7 @@ public class King extends ChessPiece {
 	
 	@Override
 	public String toString() {
-		return isWhite() ? "\u2654" : "\u265A";
+	    return isWhite() ? "\u2655" : "\u265B";
 	}
 
 }

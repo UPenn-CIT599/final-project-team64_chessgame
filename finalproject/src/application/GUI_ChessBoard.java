@@ -32,19 +32,24 @@ public class GUI_ChessBoard extends JPanel {
 		add(panel);
 
 		panel = new JPanel(new GridLayout(Board.NUMROWS, Board.NUMCOLS));
-		for (int row = 0; row < Board.NUMROWS; row++) {
-			for (int col = 0; col < Board.NUMCOLS; col++) {
+		//for (int row = 0; row < Board.NUMROWS; row++) {
+			//for (int col = 0; col < Board.NUMCOLS; col++) {
+		for (int row = Board.NUMROWS-1; row >= 0; row--) {
+		    for (int col = Board.NUMCOLS-1; col >=0; col--) {
 				Square square = new Square(row, col, board.getPiece(row, col), (row + col) % 2 == 0);
 				panel.add(square);
 				squares.add(square);
 			}
 		}
+		
 	}
 
 	public JPanel createBoardPanel() {
 		JPanel panel = new JPanel(new GridLayout(Board.NUMROWS, Board.NUMCOLS));
-		for (int row = 0; row < Board.NUMROWS; row++) {
-			for (int col = 0; col < Board.NUMCOLS; col++) {
+		//for (int row = 0; row < Board.NUMROWS; row++) {
+			//for (int col = 0; col < Board.NUMCOLS; col++) {
+		for (int row = Board.NUMROWS-1; row >= 0; row--) {
+            for (int col = Board.NUMCOLS-1; col >= 0; col--) {
 				Square square = new Square(row, col, board.getPiece(row, col), (row + col) % 2 == 0);
 				panel.add(square);
 				squares.add(square);
@@ -112,7 +117,7 @@ public class GUI_ChessBoard extends JPanel {
 						for (Square square : squares) {
 
 							if (piece.canMove(square.row, square.column)) {
-								System.out.println(piece.getClass().getName());
+								//System.out.println(piece.getClass().getName());
 								square.setBackground(Color.CYAN);
 								square.setOpaque(true);
 							} else {
@@ -141,14 +146,14 @@ public class GUI_ChessBoard extends JPanel {
 						selectedPiece = piece;
 						selectedSquare = Square.this; //current square
 
-						GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
-						setBackground(Color.GREEN);
-						selectedPiece = piece;
+                        //GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
+                        //setBackground(Color.GREEN);
+                        //selectedPiece = piece;
 					}
 
 					else if (getBackground().equals(Color.CYAN)) {//potential move is valid
 						selectedPiece.move(row, column);
-						System.out.println(board.display());
+						//System.out.println(board.display());
 
 						resetSquareColors();
 						selectedSquare.piece = null; //piece in square will be removed from original position 
@@ -157,6 +162,14 @@ public class GUI_ChessBoard extends JPanel {
 						selectedPiece = null;
 						selectedSquare = null;
 						board.switchPlayer();
+						
+						if(board.isCurrentPlayerWhite()) {
+						    GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
+						}
+						else {
+						    GUI_Header.infoMsgBlackTeamTurn(); //announces white team's turn in display area at top of gui 
+						}
+						
 					}
 				}
 			});

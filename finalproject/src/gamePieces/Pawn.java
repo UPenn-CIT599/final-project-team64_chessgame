@@ -17,9 +17,9 @@ public class Pawn extends ChessPiece {
      * @param row
      * @param column
      */
-    public Pawn(Board board, boolean isWhite, int row, int column) {
+    public Pawn(Board board, boolean isWhite, String type, int row, int column) {
        
-        super(board, isWhite, row, column);
+        super(board, isWhite, type, row, column);
 
     }
     

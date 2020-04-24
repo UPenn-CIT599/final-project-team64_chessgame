@@ -8,17 +8,18 @@ package application;
 public abstract class ChessPiece {
 	protected Board board;// protected so subclass can access
 	protected boolean isWhite;
-	
+	protected String type;
 	protected int row;
 	protected int column;
 
 	/**
 	 * This is the constructor for the ChessPiece
 	 */
-	public ChessPiece(Board board, boolean isWhite,  int row, int column) {
+	public ChessPiece(Board board, boolean isWhite, String type, int row, int column) {
 
 		this.board = board;
 		this.isWhite = isWhite;
+		this.type = type;
 		this.row = row;
 		this.column = column;
 
@@ -74,6 +75,13 @@ public abstract class ChessPiece {
 		this.column = j;
 	}
 
+	/**
+	 * 
+	 */
+	public String gettype() {
+	    return this.type;
+	}
+	
 	/**
 	 * This method takes in the row and column values and checks whether we can move
 	 * If can move, updates piece position

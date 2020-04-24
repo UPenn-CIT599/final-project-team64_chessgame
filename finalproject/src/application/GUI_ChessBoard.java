@@ -32,8 +32,6 @@ public class GUI_ChessBoard extends JPanel {
         add(panel);
 
         panel = new JPanel(new GridLayout(Board.NUMROWS, Board.NUMCOLS));
-        //for (int row = 0; row < Board.NUMROWS; row++) {
-        //for (int col = 0; col < Board.NUMCOLS; col++) {
         for (int row = Board.NUMROWS-1; row >= 0; row--) {
             for (int col = Board.NUMCOLS-1; col >=0; col--) {
                 Square square = new Square(row, col, board.getPiece(row, col), (row + col) % 2 == 0);
@@ -46,8 +44,6 @@ public class GUI_ChessBoard extends JPanel {
 
     public JPanel createBoardPanel() {
         JPanel panel = new JPanel(new GridLayout(Board.NUMROWS, Board.NUMCOLS));
-        //for (int row = 0; row < Board.NUMROWS; row++) {
-        //for (int col = 0; col < Board.NUMCOLS; col++) {
         for (int row = Board.NUMROWS-1; row >= 0; row--) {
             for (int col = Board.NUMCOLS-1; col >= 0; col--) {
                 Square square = new Square(row, col, board.getPiece(row, col), (row + col) % 2 == 0);
@@ -73,8 +69,8 @@ public class GUI_ChessBoard extends JPanel {
 
         @Override
         public void paintComponent(Graphics g) {
-            super.paintComponent(g);//paint the background first jbutton 
-            drawPiece();//then draw the piece on top of "paint"
+            super.paintComponent(g); //paint the background first JButton 
+            drawPiece(); //then draw the piece on top of "paint"
         }
 
         private void drawPiece() {
@@ -144,25 +140,47 @@ public class GUI_ChessBoard extends JPanel {
                         setBackground(Color.GREEN);
                         selectedPiece = piece;
                         selectedSquare = Square.this; //current square
-                    } else if (getBackground().equals(Color.CYAN)) {//potential move is valid
+                    } 
+                    else if (getBackground().equals(Color.CYAN)) {//potential move is valid
+                        
+                        String occupiedPiece = "";
+                        if(board.isSpaceOccupied(row, column)) {
+                            occupiedPiece = board.getPiece(row, column).gettype();
+                        }
+
+                        
                         selectedPiece.move(row, column);
+                        
                         resetSquareColors();
                         selectedSquare.piece = null; //piece in square will be removed from original position 
                         Square.this.piece = selectedPiece;//special syntax bc inside of action listener.. Must reference class
                         repaint();//telling JButton to redraw itself.
                         selectedPiece = null;
                         selectedSquare = null;
+                        
+                    
                         board.switchPlayer();
-
+                        
+                        
                         if(board.isCurrentPlayerWhite()) {
                             GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
                         }
                         else {
                             GUI_Header.infoMsgBlackTeamTurn(); //announces white team's turn in display area at top of gui 
                         }
-
+                        
+                        if (occupiedPiece == "King" & board.isCurrentPlayerWhite()) {
+                            GUI_Header.infoGameOverWhite();
+                        }
+                        else if (occupiedPiece == "King" & !(board.isCurrentPlayerWhite())){
+                            GUI_Header.infoGameOverBlack();
+                        }
+                        
+                        
                     }
+
                 }
+                
             }); 
         }
     }

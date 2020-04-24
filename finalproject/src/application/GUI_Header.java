@@ -52,4 +52,16 @@ public class GUI_Header extends JPanel {
         textInNotificationBar.setText("\n                      It is black team's turn! \n");
     }
     
+    public static void infoGameOverBlack() {
+//      textInNotificationBar.append("\n It is black team's turn! \n");
+      textInNotificationBar.setText("\n                      Game Over! White Team wins! \n");
+  }
+        
+    public static void infoGameOverWhite() {
+//      textInNotificationBar.append("\n It is black team's turn! \n");
+      textInNotificationBar.setText("\n                      Game Over! Black Team wins! \n");
+  }
+    
+    
+    
 }

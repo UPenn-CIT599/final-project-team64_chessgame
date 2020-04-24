@@ -18,9 +18,9 @@ public class King extends ChessPiece {
 	 * @param row
 	 * @param column
 	 */
-	public King(Board board, boolean isWhite, int row, int column) {
+	public King(Board board, boolean isWhite, String type, int row, int column) {
 
-		super(board, isWhite, row, column);
+		super(board, isWhite, type, row, column);
 
 	}
 
@@ -67,7 +67,8 @@ public class King extends ChessPiece {
 	
 	@Override
 	public String toString() {
-	    return isWhite() ? "\u2655" : "\u265B";
+	    //return isWhite() ? "\u2655" : "\u265B";
+	    return isWhite() ? "\u2654" : "\u265A";
 	}
 
 }

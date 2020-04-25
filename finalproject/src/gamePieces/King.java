@@ -25,15 +25,6 @@ public class King extends ChessPiece {
 	}
 
 	/**
-	 * This method checks whether a ChessPiece can conduct the Castling move or not
-	 * 
-	 * @return
-	 */
-	public boolean isValidCastling() {
-		return false;
-	}
-
-	/**
 	 * This method checks whether a ChessPiece can move or not
 	 * 
 	 * @return
@@ -65,9 +56,11 @@ public class King extends ChessPiece {
 
 	}
 	
+	/**
+	 * Provides unicode for particular chess piece to display in GUI
+	 */
 	@Override
 	public String toString() {
-	    //return isWhite() ? "\u2655" : "\u265B";
 	    return isWhite() ? "\u2654" : "\u265A";
 	}
 

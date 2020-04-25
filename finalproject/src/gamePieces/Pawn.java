@@ -168,6 +168,9 @@ public class Pawn extends ChessPiece {
         return false;
     }
      
+    /**
+	 * Provides unicode for particular chess piece to display in GUI
+	 */
     @Override
     public String toString() {
     	return isWhite() ? "\u2659" : "\u265F";

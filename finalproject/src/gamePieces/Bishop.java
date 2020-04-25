@@ -46,6 +46,9 @@ public class Bishop extends ChessPiece {
 
 	}
 	
+	/**
+	 * Provides unicode for particular chess piece to display in GUI
+	 */
 	@Override
 	public String toString() {
 		return isWhite() ? "\u2657" : "\u265D"; 

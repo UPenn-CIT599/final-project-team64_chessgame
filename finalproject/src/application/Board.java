@@ -235,12 +235,4 @@ public class Board {
 		return result;
 	}
 
-	/**
-	 * This method checks whether king would be check mate or not Would take a Piece
-	 * and see if it leads to check mate? Note: need to write this
-	 */
-	public boolean checkKingCheckMate() {
-		return false;
-	}
-
 }

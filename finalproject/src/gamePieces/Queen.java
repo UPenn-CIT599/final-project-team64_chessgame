@@ -65,10 +65,13 @@ public class Queen extends ChessPiece {
 
 	}
 	
+	/**
+	 * Provides unicode for particular chess piece to display in GUI
+	 */
 	@Override
 	public String toString() {
 	    return isWhite() ? "\u2655" : "\u265B";
-	    //return isWhite() ? "\u2654" : "\u265A";
+	    
 	}
 
 }

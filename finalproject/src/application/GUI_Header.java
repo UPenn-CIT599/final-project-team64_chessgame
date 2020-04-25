@@ -39,26 +39,26 @@ public class GUI_Header extends JPanel {
     }
 
     public static void infoMsgWhiteTeamTurn() {
-//        textInNotificationBar.append("\n It is white team's turn! \n");
+        //        textInNotificationBar.append("\n It is white team's turn! \n");
         textInNotificationBar.setText("\n                      It is white team's turn! \n");
 
         
         //        textInNotificationBar.getComponentOrientation().isHorizontal();
-//        textInNotificationBar.setSelectedTextColor(Color.WHITE);
+        //        textInNotificationBar.setSelectedTextColor(Color.WHITE);
     }
     
     public static void infoMsgBlackTeamTurn() {
-//        textInNotificationBar.append("\n It is black team's turn! \n");
+        //        textInNotificationBar.append("\n It is black team's turn! \n");
         textInNotificationBar.setText("\n                      It is black team's turn! \n");
     }
     
     public static void infoGameOverBlack() {
-//      textInNotificationBar.append("\n It is black team's turn! \n");
+        //      textInNotificationBar.append("\n It is black team's turn! \n");
       textInNotificationBar.setText("\n                      Game Over! White Team wins! \n");
   }
         
     public static void infoGameOverWhite() {
-//      textInNotificationBar.append("\n It is black team's turn! \n");
+        //      textInNotificationBar.append("\n It is black team's turn! \n");
       textInNotificationBar.setText("\n                      Game Over! Black Team wins! \n");
   }
     

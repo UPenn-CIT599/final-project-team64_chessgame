@@ -1,11 +1,9 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-//import org.junit.FixMethodOrder;
-//import org.junit.runners.MethodSorters;
+
 
 import consoleVersion.Board;
 import consoleVersion.Pawn;

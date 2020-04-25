@@ -22,6 +22,8 @@ public class Board {
 	private static ArrayList<ChessPiece> whiteCapturedPieces;
 	private static ArrayList<ChessPiece> blackCapturedPieces;
 	private boolean isCurrentPlayerWhite = true;
+	private boolean isGameOver = false;
+	
 	/**
 	 * This is the board constructor. It initializes the board to a zero board
 	 */
@@ -30,22 +32,41 @@ public class Board {
 		initialize();// constructor will initialize the state of the object
 	}
 	
+	/**
+	 * This method interacts with GUI_ChessBoard
+	 * @return
+	 */
 	public boolean isCurrentPlayerWhite() {
 		return isCurrentPlayerWhite;
-	}
+	}	
 	
-	/*
-	 * Temporary method if we have a move method within board class for GUI
+	/**
+	 * This method switches play in GUI_ChessBoard
 	 */
 	public void switchPlayer() {
 		isCurrentPlayerWhite = !isCurrentPlayerWhite;//boolean into opposite value
-        GUI_Header.infoMsgBlackTeamTurn();//announces black team's turn in display area at top of gui        
+        //GUI_Header.infoMsgBlackTeamTurn();//announces black team's turn in display area at top of gui        
 
 	}
+	
+	/**
+	 * This method finishes Game
+	 * @return
+	 */
+	public boolean isGameOver(){
+        return isGameOver;
+    }
+	
+	/**
+	 * This method switches GameStatus in GUI_ChessBoard
+	 */
+	public void switchGameStatus() {
+	    isGameOver = !isGameOver;
+	}
+	   
 
 	/**
 	 * This method returns the ArrayList of white captured pieces
-	 * 
 	 * @return
 	 */
 	public static ArrayList<ChessPiece> getWhiteCapturedPieces() {
@@ -54,7 +75,6 @@ public class Board {
 
 	/**
 	 * This method returns the ArrayList of black captured pieces
-	 * 
 	 * @return
 	 */
 	public static ArrayList<ChessPiece> getBlackCapturedPieces() {
@@ -111,7 +131,6 @@ public class Board {
 
 	/**
 	 * This method checks whether the Space is occupied or not
-	 * 
 	 * @param row
 	 * @param col
 	 * @return
@@ -122,7 +141,6 @@ public class Board {
 
 	/**
 	 * This method returns the ChessPiece at a given row and column
-	 * 
 	 * @param row
 	 * @param column
 	 * @return
@@ -134,7 +152,6 @@ public class Board {
 	/**
 	 * This method allows one to place a Piece at a particular location Note: May
 	 * not be needed
-	 * 
 	 * @param piece
 	 * @param row
 	 * @param column

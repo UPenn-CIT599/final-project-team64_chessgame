@@ -101,82 +101,85 @@ public class GUI_ChessBoard extends JPanel {
 
                 @Override
                 public void actionPerformed(ActionEvent event) {
-                    // System.out.println("Clicked on " + piece.getClass().getSimpleName());
-                    if (selectedPiece == null) {
-                        // if piece we are clicking
-                        // on does not match
-                        // current player then
-                        // can't move piece
-                        if (piece == null || piece.isWhite() != board.isCurrentPlayerWhite()) {
-                            return;
-                        }
-                        for (Square square : squares) {
-
-                            if (piece.canMove(square.row, square.column)) {
-                                //System.out.println(piece.getClass().getName());
-                                square.setBackground(Color.CYAN);
-                                square.setOpaque(true);
-                            } else {
-                                square.setColor();
-                            }
-                        }
-
-                        setBackground(Color.GREEN);
-                        selectedPiece = piece;
-                        selectedSquare = Square.this; //current square
-                    }
-                    //piece selected but want to switch to another piece of same color (player is changing mind)
-                    else if (piece != null && piece.isWhite == board.isCurrentPlayerWhite()) {
-                        selectedSquare.setColor();
-                        for (Square square : squares) {
-
-                            if (piece.canMove(square.row, square.column)) {
-                                square.setBackground(Color.CYAN);
-                                square.setOpaque(true);
-                            } else {
-                                square.setColor(); 
-                            }
-                        }
-                        setBackground(Color.GREEN);
-                        selectedPiece = piece;
-                        selectedSquare = Square.this; //current square
-                    } 
-                    else if (getBackground().equals(Color.CYAN)) {//potential move is valid
-                        
-                        String occupiedPiece = "";
-                        if(board.isSpaceOccupied(row, column)) {
-                            occupiedPiece = board.getPiece(row, column).gettype();
-                        }
-
-                        
-                        selectedPiece.move(row, column);
-                        
-                        resetSquareColors();
-                        selectedSquare.piece = null; //piece in square will be removed from original position 
-                        Square.this.piece = selectedPiece;//special syntax bc inside of action listener.. Must reference class
-                        repaint();//telling JButton to redraw itself.
-                        selectedPiece = null;
-                        selectedSquare = null;
-                        
                     
-                        board.switchPlayer();
-                        
-                        
-                        if(board.isCurrentPlayerWhite()) {
-                            GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
+                    if(!(board.isGameOver())) {
+                        // System.out.println("Clicked on " + piece.getClass().getSimpleName());
+                        if (selectedPiece == null) {
+                            // if piece we are clicking
+                            // on does not match
+                            // current player then
+                            // can't move piece
+                            if (piece == null || piece.isWhite() != board.isCurrentPlayerWhite()) {
+                                return;
+                            }
+                            for (Square square : squares) {
+    
+                                if (piece.canMove(square.row, square.column)) {
+                                    //System.out.println(piece.getClass().getName());
+                                    square.setBackground(Color.CYAN);
+                                    square.setOpaque(true);
+                                } else {
+                                    square.setColor();
+                                }
+                            }
+    
+                            setBackground(Color.GREEN);
+                            selectedPiece = piece;
+                            selectedSquare = Square.this; //current square
                         }
-                        else {
-                            GUI_Header.infoMsgBlackTeamTurn(); //announces white team's turn in display area at top of gui 
-                        }
+                        //piece selected but want to switch to another piece of same color (player is changing mind)
+                        else if (piece != null && piece.isWhite == board.isCurrentPlayerWhite()) {
+                            selectedSquare.setColor();
+                            for (Square square : squares) {
+    
+                                if (piece.canMove(square.row, square.column)) {
+                                    square.setBackground(Color.CYAN);
+                                    square.setOpaque(true);
+                                } else {
+                                    square.setColor(); 
+                                }
+                            }
+                            setBackground(Color.GREEN);
+                            selectedPiece = piece;
+                            selectedSquare = Square.this; //current square
+                        } 
+                        else if (getBackground().equals(Color.CYAN)) {//potential move is valid
+                            
+                            String occupiedPiece = "";
+                            if(board.isSpaceOccupied(row, column)) {
+                                occupiedPiece = board.getPiece(row, column).gettype();
+                            }
+    
+                            
+                            selectedPiece.move(row, column);
+                            
+                            resetSquareColors();
+                            selectedSquare.piece = null; //piece in square will be removed from original position 
+                            Square.this.piece = selectedPiece; //special syntax bc inside of action listener.. Must reference class
+                            repaint(); //telling JButton to redraw itself.
+                            selectedPiece = null;
+                            selectedSquare = null;
+                            
                         
-                        if (occupiedPiece == "King" & board.isCurrentPlayerWhite()) {
-                            GUI_Header.infoGameOverWhite();
+                            board.switchPlayer();
+                            
+                            
+                            if(board.isCurrentPlayerWhite()) {
+                                GUI_Header.infoMsgWhiteTeamTurn();//announces white team's turn in display area at top of gui
+                            }
+                            else {
+                                GUI_Header.infoMsgBlackTeamTurn(); //announces white team's turn in display area at top of gui 
+                            }
+                            
+                            if (occupiedPiece == "King" & board.isCurrentPlayerWhite()) {
+                                board.switchGameStatus();
+                                GUI_Header.infoGameOverWhite(); 
+                            }
+                            else if (occupiedPiece == "King" & !(board.isCurrentPlayerWhite())){
+                                board.switchGameStatus();
+                                GUI_Header.infoGameOverBlack(); 
+                            }
                         }
-                        else if (occupiedPiece == "King" & !(board.isCurrentPlayerWhite())){
-                            GUI_Header.infoGameOverBlack();
-                        }
-                        
-                        
                     }
 
                 }

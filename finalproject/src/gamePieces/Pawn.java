@@ -76,7 +76,7 @@ public class Pawn extends ChessPiece {
      * @param currentColumn
      * @return
      */
-    private boolean isValidWhitePawnMove(int row, int column, int currentRow, int currentColumn) {
+    public boolean isValidWhitePawnMove(int row, int column, int currentRow, int currentColumn) {
         // First check if move is not resulting in king being check mate
         // If not check for valid move
         if(currentRow == 1) {
@@ -126,7 +126,7 @@ public class Pawn extends ChessPiece {
      * @param currentColumn
      * @return
      */
-    private boolean isValidBlackPawnMove(int row, int column, int currentRow, int currentColumn) {
+    public boolean isValidBlackPawnMove(int row, int column, int currentRow, int currentColumn) {
         // First check if move is not resulting in king being check mate
         // If not check for valid move
         if(currentRow == 6) {

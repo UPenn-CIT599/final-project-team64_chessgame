@@ -131,7 +131,6 @@ public class GUI_ChessBoard extends JPanel {
 				public void actionPerformed(ActionEvent event) {
 
 					if (!(board.isGameOver())) {
-						// System.out.println("Clicked on " + piece.getClass().getSimpleName());
 						if (selectedPiece == null) {
 							// if piece we are clicking
 							// on does not match
@@ -143,7 +142,6 @@ public class GUI_ChessBoard extends JPanel {
 							for (Square square : squares) {
 
 								if (piece.canMove(square.row, square.column)) {
-									//System.out.println(piece.getClass().getName());
 									square.setBackground(Color.CYAN);
 									square.setOpaque(true);
 								} else {

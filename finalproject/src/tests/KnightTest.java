@@ -1,25 +1,25 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 import application.Board;
 import gamePieces.Knight;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class KnightTest {
     private static Board board;
     private static Knight testWhiteKnight;
-    
     
     /**
      * Sets up reused objects for all test cases
      * @throws Exception
      */
-    @BeforeAll
+    @BeforeClass
     public static void setupBeforeClass() throws Exception {
         board = new Board();
         board.initialize();
@@ -27,8 +27,7 @@ public class KnightTest {
     }
     
     @Test
-    @Order(1)
-    public void testKnightMove() {
+    public void testAKnightMove() {
         
         // 1. Check if valid to move by 2 steps right by one
         assertTrue(testWhiteKnight.canMove(2,2));
@@ -72,27 +71,15 @@ public class KnightTest {
      
     }
     
-    
     @Test
-    @Order(2)
     public void testKnightBoardInteractions() {
         
         // 1. Try moving to occupied spot occupied by same color piece
-        board.placePiece(board.getPiece(0, 6), 1, 4);
-        
-        // 2. Try capturing using white knight
-        board.placePiece(testWhiteKnight, 6, 5);
+        assertFalse(board.getPiece(0, 6).canMove(1, 4));
+            
+        // 2. Try seeing move to capture using white knight works
+        assertTrue(testWhiteKnight.canMove(6, 5));
         
     }
-    
 
-    @AfterAll
-    public static void cleanUp(){
-        board = null;
-        assertNull(board);
-        testWhiteKnight = null;
-        assertNull(testWhiteKnight);
-    }
-
-   
 }

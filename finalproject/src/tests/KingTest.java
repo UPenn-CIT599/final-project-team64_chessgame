@@ -1,15 +1,15 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 import application.Board;
 import gamePieces.King;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class KingTest {
     private static Board board;
     private static King testKing;
@@ -18,18 +18,15 @@ public class KingTest {
      * Sets up reused objects for all test cases
      * @throws Exception
      */
-    @BeforeAll
+    @BeforeClass
     public static void setupBeforeClass() throws Exception {
         board = new Board();
         board.initialize();
         testKing = new King(board, true , "King" , 3 , 3);
     }
     
-    
     @Test
-    @Order(1)
-    public void KingMoveTest() {
-        
+    public void testAKingMove() {
         // 1. Move forward by one 
         assertTrue(testKing.canMove(4,3));
         
@@ -53,12 +50,10 @@ public class KingTest {
 
         // 8. Move back left by one 
         assertTrue(testKing.canMove(2,2));
-       
     }
     
     @Test
-    @Order(2)
-    public void testKingBoardInteractions() {
+    public void testBKingBoardInteractions() {
        
         // 1. Try moving to occupied spot occupied by same color piece
         assertFalse(board.getPiece(0, 3).canMove(1, 3));
@@ -80,13 +75,5 @@ public class KingTest {
         
     }
     
-    @AfterAll
-    public static void cleanUp(){
-        board = null;
-        assertNull(board);
-        testKing= null;
-        assertNull(testKing); 
-    }
-    
-
 }
+

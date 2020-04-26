@@ -132,10 +132,8 @@ public class GUI_ChessBoard extends JPanel {
 
 					if (!(board.isGameOver())) {
 						if (selectedPiece == null) {
-							// if piece we are clicking
-							// on does not match
-							// current player then
-							// can't move piece
+							
+							// if piece we are clicking on does not match current player then can't move piece
 							if (piece == null || piece.isWhite() != board.isCurrentPlayerWhite()) {
 								return;
 							}

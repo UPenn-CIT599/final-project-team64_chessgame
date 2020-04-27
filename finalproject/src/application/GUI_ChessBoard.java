@@ -1,6 +1,9 @@
 package application;
 
 import javax.swing.JPanel;
+
+import gamePieces.ChessPiece;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -152,7 +155,7 @@ public class GUI_ChessBoard extends JPanel {
 							selectedSquare = Square.this; //current square
 						}
 						//piece selected but want to switch to another piece of same color (player is changing mind)
-						else if (piece != null && piece.isWhite == board.isCurrentPlayerWhite()) {
+						else if (piece != null && piece.isWhite() == board.isCurrentPlayerWhite()) {
 							selectedSquare.setColor();
 							for (Square square : squares) {
 

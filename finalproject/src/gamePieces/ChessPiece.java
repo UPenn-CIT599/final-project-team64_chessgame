@@ -1,4 +1,6 @@
-package application;
+package gamePieces;
+
+import application.Board;
 
 /**
  * The ChessPiece class is an abstract superclass with subclasses: King, Queen,

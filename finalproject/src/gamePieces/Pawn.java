@@ -1,7 +1,6 @@
 package gamePieces;
 
 import application.Board;
-import application.ChessPiece;
 
 /**
  * The Pawn class is a concrete class that extends abstract class ChessPiece.

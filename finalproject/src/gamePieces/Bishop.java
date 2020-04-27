@@ -1,7 +1,6 @@
 package gamePieces;
 
 import application.Board;
-import application.ChessPiece;
 import application.MovePieceChecker;
 
 /**

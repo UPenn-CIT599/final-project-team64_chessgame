@@ -1,8 +1,9 @@
 package application;
 
-import java.util.*;
+import java.util.ArrayList;
 
 import gamePieces.Bishop;
+import gamePieces.ChessPiece;
 import gamePieces.King;
 import gamePieces.Knight;
 import gamePieces.Pawn;

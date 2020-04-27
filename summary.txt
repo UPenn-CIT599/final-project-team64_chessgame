@@ -1,7 +1,7 @@
 CHESS GAME/TEAM 64
 https://github.com/UPenn-CIT599/final-project-team64_chessgame
 
-The project was simply to develop a workable chess game using the java skillset that we learned over the course of the semester.  In addition, we expanded our knowledge base by implementing Java Swing vs using just a console version of the game.  We are mostly beginner programmers and this project created some challenging problem sets.  The first was ensuring the movement for each piece was implemented properly.  The second was using the existing code base to establish a GUI utilizing Java Swing.  Lastly (but certainly not leastly), was to do our best to provide DRY & Cohesive code given the challenge we presented to ourselves.
+The project was simply to develop a workable chess game using the java skillset that we learned over the course of the semester.  In addition, we expanded our knowledge base by implementing Java Swing vs using just a console version of the game.  We are mostly beginner programmers and this project created some challenging problem sets.  The first was ensuring the movement for each piece was implemented properly.  The second was using the existing code base to establish a GUI utilizing Java Swing.  Lastly (but certainly not leastly), was to do our best to provide DRY & Cohesive code given the challenge we presented to ourselves. Note: the final review of our code slightly modified the design version we presented during the project fair.
 
 Jean-Michel Guerin - Created the individual chess pieces, created the frame and panels in swing surrounding the board.
 

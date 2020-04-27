@@ -22,11 +22,6 @@ public class Pawn extends ChessPiece {
 
     }
     
-    
-    public boolean isSpecialMove() {
-        return false;
-    }
-    
     /**
      * This method checks whether a ChessPiece can move or not
      * @return

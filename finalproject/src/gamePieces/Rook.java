@@ -10,8 +10,6 @@ import application.MovePieceChecker;
 public class Rook extends ChessPiece {
 
 	/**
-	 * This extends the super constructor for Rook
-	 * 
 	 * @param board
 	 * @param color
 	 * @param type
@@ -26,7 +24,6 @@ public class Rook extends ChessPiece {
 
 	/**
 	 * This method checks whether a ChessPiece can move or not
-	 * 
 	 * @return
 	 */
 	@Override

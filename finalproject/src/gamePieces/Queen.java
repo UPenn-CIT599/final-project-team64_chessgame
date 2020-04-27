@@ -12,8 +12,6 @@ import application.MovePieceChecker;
 public class Queen extends ChessPiece {
 
 	/**
-	 * This extends the super constructor for Queen
-	 * 
 	 * @param board
 	 * @param color
 	 * @param type
@@ -28,7 +26,6 @@ public class Queen extends ChessPiece {
 
 	/**
 	 * This method checks whether Chess Piece can move or not
-	 * 
 	 * @return
 	 */
 	@Override

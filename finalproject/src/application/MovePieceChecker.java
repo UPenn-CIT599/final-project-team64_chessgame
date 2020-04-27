@@ -1,5 +1,8 @@
 package application;
 
+/**
+ * The MovePieceChecker ensures allowable (in accordance with Chess rules) moves are taken by players.
+ */
 public class MovePieceChecker {
     
     /**

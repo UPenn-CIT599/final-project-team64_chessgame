@@ -9,8 +9,6 @@ import application.Board;
 public class King extends ChessPiece {
 
 	/**
-	 * This extends the super constructor for King
-	 * 
 	 * @param board
 	 * @param color
 	 * @param type
@@ -18,14 +16,11 @@ public class King extends ChessPiece {
 	 * @param column
 	 */
 	public King(Board board, boolean isWhite, String type, int row, int column) {
-
 		super(board, isWhite, type, row, column);
-
 	}
 
 	/**
 	 * This method checks whether a ChessPiece can move or not
-	 * 
 	 * @return
 	 */
 	@Override

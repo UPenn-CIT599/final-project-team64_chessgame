@@ -8,9 +8,7 @@ import application.Board;
  */
 public class Knight extends ChessPiece {
 
-	/**
-	 * This extends the super constructor for Knight
-	 * 
+	/** 
 	 * @param board
 	 * @param color
 	 * @param type

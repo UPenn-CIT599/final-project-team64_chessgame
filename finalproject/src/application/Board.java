@@ -11,7 +11,7 @@ import gamePieces.Queen;
 import gamePieces.Rook;
 
 /**
- * The Board class is a class that constructs a 8x8 ChessBoard using a double
+ * The Board class is a class that constructs an 8x8 ChessBoard using a double
  * ChessPiece array. It has non-trivial methods including initialize(),
  * isSpaceOccupied(), getPiece(), placePiece(), display()
  * 
@@ -34,7 +34,7 @@ public class Board {
 	}
 	
 	/**
-	 * This method interacts with GUI_ChessBoard
+	 * This method interacts with GUI_ChessBoard, determines which team's turn it is
 	 * @return
 	 */
 	public boolean isCurrentPlayerWhite() {
@@ -46,8 +46,6 @@ public class Board {
 	 */
 	public void switchPlayer() {
 		isCurrentPlayerWhite = !isCurrentPlayerWhite;//boolean into opposite value
-        //GUI_Header.infoMsgBlackTeamTurn();//announces black team's turn in display area at top of gui        
-
 	}
 	
 	/**
@@ -65,7 +63,6 @@ public class Board {
 	    isGameOver = !isGameOver;
 	}
 	   
-
 	/**
 	 * This method returns the ArrayList of white captured pieces
 	 * @return
@@ -172,7 +169,6 @@ public class Board {
 				// If valid move: update position and remove occupiedPiece
 				if (piece.canMove(row, column)) {
 
-					// PERHAPS CHANGE TO NULL?? : Explore later
 					occupiedPiece.setColumn(11); // set to a meaningless value
 					occupiedPiece.setRow(11); // set to a meaningless value
 

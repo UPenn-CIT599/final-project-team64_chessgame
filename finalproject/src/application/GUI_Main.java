@@ -5,6 +5,9 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 
+/**
+ * This class creates and organizes the GUI's components, then arranges their layout
+ */ 
 public class GUI_Main extends JFrame {
     private static JFrame frame; // main GUI window   
     private GUI_Buttons buttons; // right - contains buttons for new game and quit game
@@ -13,11 +16,8 @@ public class GUI_Main extends JFrame {
     private GUI_Jail jail; // left - contains area where captured chessPieces are placed
 
     /**
-     * Creates and organizes the GUI's components, then arranges their layout
+     * Creates main window app and its components, then arranges their layout
      */ 
-    /**
-     * 
-     */
     public GUI_Main() {
 
         //Create and set up the window
@@ -42,14 +42,14 @@ public class GUI_Main extends JFrame {
     }
 
     /**
-     * closes current game before a new game is launched 
+     * Upon new game button click, closes current game before a new game is launched 
      */
     public static void close_GUI() {
         frame.dispose(); 
     }
 
     /**
-     * sets cross platform look & feel for macOS users
+     * sets cross platform look & feel 
      * @param args
      */
     public static void main(String[] args) {

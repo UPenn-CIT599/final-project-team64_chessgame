@@ -12,15 +12,17 @@ import gamePieces.ChessPiece;
 
 @SuppressWarnings("serial")
 
-
+/**
+ * The GUI_Jail class adds jails for white team and black team prisoners  
+ */
 public class GUI_Jail extends JPanel {
     private JLabel label_1;
     private JLabel label_2;
     private static JTextPane textJailTop;
     private static JTextPane textJailBottom;
 
-    /*
-     * Adds status (aka information) bar above chessBoard (aka north portion of GUI)  
+    /**
+     * Builds labels and areas for both jails, includes constraints necessary for gui design / display  
      */
     public GUI_Jail() {
 
@@ -97,6 +99,9 @@ public class GUI_Jail extends JPanel {
         add(textJailBottom, gbc_textJailBottom);
     }
 
+    /**
+     * Add white team prisoners from captured pieces array list into appropriate GUI jail 
+     */
     static void addWhiteTeamPrisoners() {
         ArrayList<ChessPiece> caps = Board.getWhiteCapturedPieces();
         String caps1 = new String(); 
@@ -106,6 +111,9 @@ public class GUI_Jail extends JPanel {
         }
     }
 
+    /**
+     * Add black team prisoners from captured pieces array list into appropriate GUI jail 
+     */
     static void addBlackTeamPrisoners() {
         ArrayList<ChessPiece> caps = Board.getBlackCapturedPieces();
         String caps1 = new String(); 

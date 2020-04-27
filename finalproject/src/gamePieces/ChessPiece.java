@@ -24,62 +24,36 @@ public abstract class ChessPiece {
 		this.type = type;
 		this.row = row;
 		this.column = column;
-
 	}
 
-	/**
-	 * This is getter for the Board
-	 */
 	public Board getBoard() {
 		return board;
 	}
 
-	/**
-	 * Whether or not isWhite
-	 */
 	public boolean isWhite() {
 		return isWhite;
 	}
 
-	/**
-	 * This is setter for the Color
-	 */
 	public void setColor(boolean isWhite) {
 		this.isWhite = isWhite;
 	}
 
-
-	/**
-	 * This is getter for the Row
-	 */
 	public int getRow() {
 		return row;
 	}
 
-	/**
-	 * This is setter for the Row
-	 */
 	public void setRow(int i) {
 		this.row = i;
 	}
 
-	/**
-	 * This is getter for the column
-	 */
 	public int getColumn() {
 		return this.column;
 	}
 
-	/**
-	 * This is setter for the column
-	 */
 	public void setColumn(int j) {
 		this.column = j;
 	}
 
-	/**
-	 * 
-	 */
 	public String gettype() {
 	    return this.type;
 	}
@@ -122,12 +96,10 @@ public abstract class ChessPiece {
 	public abstract boolean canMove(int row, int column);
 
     public Object getType() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public Object getColor() {
-        // TODO Auto-generated method stub
         return null;
     } 
     
@@ -138,7 +110,5 @@ public abstract class ChessPiece {
     public String info() {
     	return getClass().getSimpleName() + "(" + row + ", " + column + ")";
     }
-		
 	
-
 }
